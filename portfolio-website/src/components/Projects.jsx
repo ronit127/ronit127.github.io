@@ -133,7 +133,7 @@ function Projects() {
               Explore my complete portfolio on GitHub to see all my work and contributions.
             </p>
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/ronit127" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-block px-6 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-75"

@@ -2,7 +2,7 @@ import React from 'react';
 import projects from '../assets/data/projects';
 import { 
   SiPython, SiJavascript, SiReact, SiFlask, SiHtml5, SiCss3, 
-  SiNextdotjs, SiC, SiRaspberrypi
+  SiNextdotjs, SiC, SiRaspberrypi, SiOpenai
 } from 'react-icons/si';
 
 function Projects() {
@@ -17,6 +17,7 @@ function Projects() {
     'CSS': SiCss3,
     'C': SiC,
     'Raspberry Pi': SiRaspberrypi,
+    'OpenAI API': SiOpenai
   };
 
   return (

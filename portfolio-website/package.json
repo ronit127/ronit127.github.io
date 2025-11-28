@@ -1,7 +1,7 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "A simple and clean portfolio website with a whimsical pastel grey color scheme.",
+  "description": "A simple and clean portfolio website with a grey color scheme.",
   "main": "src/index.jsx",
   "scripts": {
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && concurrently \"npm:watch:css\" \"react-scripts start\"",

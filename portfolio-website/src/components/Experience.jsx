@@ -8,7 +8,7 @@ function Experience() {
       location: 'Remote',
       period: 'Aug 2025 - Present',
       highlights: [
-        'Built full-stack ROI dashboards with React/TypeScript, processing 1.5M+ real estate records',
+        'Built and refactored React components with TypeScript and Tailwind CSS',
         'Optimized CI/CD pipeline, cutting test execution times by 40%'
       ]
     },

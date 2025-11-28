@@ -1,7 +1,24 @@
 import React from 'react';
 import projects from '../assets/data/projects';
+import { 
+  SiPython, SiJavascript, SiReact, SiFlask, SiHtml5, SiCss3, 
+  SiNextdotjs, SiC, SiRaspberrypi
+} from 'react-icons/si';
 
 function Projects() {
+  // Map tech names to their icons
+  const techIcons = {
+    'Python': SiPython,
+    'JavaScript': SiJavascript,
+    'React': SiReact,
+    'NextJS': SiNextdotjs,
+    'Flask': SiFlask,
+    'HTML': SiHtml5,
+    'CSS': SiCss3,
+    'C': SiC,
+    'Raspberry Pi': SiRaspberrypi,
+  };
+
   return (
     <section id="projects" className="py-24 px-8">
       <div className="max-w-6xl mx-auto">
@@ -39,26 +56,27 @@ function Projects() {
                 </p>
                 
                 {/* Tech Stack */}
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {project.technologies.map((tech, idx) => {
-                    const colors = ['#2D1B3E', '#3A2456', '#4A3362'];
-                    const bgColor = colors[1];
-                    return (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-white rounded-sm text-sm font-normal whitespace-nowrap snap-start flex-shrink-0"
-                        style={{
-                          background: `${bgColor}b3`,
-                          backdropFilter: 'blur(16px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                          border: `1.5px solid ${bgColor}50`,
-                          boxShadow: `0px 1px 3px ${bgColor}66`
-                        }}
-                      >
-                        {tech}
-                      </span>
-                    );
-                  })}
+                <div className="mb-6 flex flex-wrap gap-3">
+                  {project.technologies
+                    .filter(tech => techIcons[tech])
+                    .map((tech) => {
+                      const Icon = techIcons[tech];
+                      return (
+                        <div
+                          key={tech}
+                          className="flex items-center justify-center"
+                          title={tech}
+                        >
+                          <Icon 
+                            size={32} 
+                            style={{ 
+                              color: '#3A2456b3',
+                              filter: 'drop-shadow(0 0px 1px rgba(58, 36, 86, 0.3))'
+                            }} 
+                          />
+                        </div>
+                      );
+                    })}
                 </div>
                 
                 {/* Project Links */}

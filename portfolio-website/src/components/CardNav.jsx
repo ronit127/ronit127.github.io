@@ -1,6 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-// use your own icon import if react-icons is not available
 import { GoArrowUpRight } from 'react-icons/go';
 import { FiExternalLink } from 'react-icons/fi';
 
@@ -8,10 +7,7 @@ const CardNav = ({
   items,
   className = '',
   ease = 'power3.out',
-  baseColor = '#fff',
   menuColor,
-  buttonBgColor,
-  buttonTextColor
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -131,7 +127,7 @@ const CardNav = ({
 
   let greeting = "Hello! I'm";
   let name = "Ronit Rout";
-  let desc = "CS and Education @ UIUC | Full-Stack Developer Intern at Butterflo";
+  let desc = "I'm a student developer who enjoys creating thoughtful, and easy-to-use software.";
 
   return (
     <div

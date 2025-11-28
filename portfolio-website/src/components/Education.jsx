@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { FiChevronLeft, FiChevronRight, FiSlash } from 'react-icons/fi';
+import { useRef, useState, useEffect } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 function Education() {
   const scrollRef = useRef(null);

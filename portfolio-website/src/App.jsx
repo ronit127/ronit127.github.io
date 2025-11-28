@@ -4,9 +4,6 @@ import Projects from './components/Projects';
 import CardNav from './components/CardNav';
 import LiquidEther from './components/LiquidEther';
 
-// global styles are imported once in index.jsx
-
-
 const App = () => {
   const items = [
     {
@@ -40,7 +37,6 @@ const App = () => {
 
   return (
     <div className="page-bg">
-      {/* Hero Section with CardNav centered */}
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <LiquidEther
           colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}

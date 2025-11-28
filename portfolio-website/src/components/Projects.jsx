@@ -5,7 +5,7 @@ function Projects() {
   return (
     <section id="projects" className="py-24 px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="section-title">Selected Work</h2>
+        <h2 className="section-title">Portfolio</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (

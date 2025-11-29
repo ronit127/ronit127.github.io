@@ -20,7 +20,7 @@ const App = () => {
       bgColor: "#3A2456",
       textColor: "#fff",
       links: [
-        { label: "View All", href: "#projects", ariaLabel: "View All Projects" }
+        { label: "View Portfolio", href: "#projects", ariaLabel: "View Portfolio" }
       ]
     },
     {
@@ -46,7 +46,7 @@ const App = () => {
           viscous={30}
           iterationsViscous={32}
           iterationsPoisson={32}
-          resolution={0.5}
+          resolution={0.3}
           isBounce={false}
           autoDemo={true}
           autoSpeed={0.4}

@@ -2,13 +2,28 @@ import regexImg from './images/regexprojectimage.PNG';
 
 const projects = [
     {
+        title: "Visual Debugger",
+        description: "A visual Python code editor and debugger with real-time data structure visualizations.",
+        liveLink: "",
+        repoLink: "https://github.com/ronit127/visual-debugger",
+        image: regexImg,
+        technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+    },
+    {
+        title: "PrairieLearn Boolean Expression Element",
+        description: "A boolean expression evaluator serving as an add-on to the Prairielearn platform",
+        liveLink: "",
+        repoLink: "",
+        image: regexImg,
+        technologies: ["Python", "HTML", "CSS", "Mustache"],
+    },
+    {
         title: "Real-Time TCP Vocoder",
         description: "Streams audio with voice effects applied across multiple Raspberry Pis over TCP.",
         liveLink: "",
         repoLink: "https://github.com/aashvibusa/341-Honors-Project",
         image: regexImg,
         technologies: ["C", "Raspberry Pi", "ALSA", "TCP"],
-        date: "May 2025"
     },
     {
         title: "Samplify: Modular Music Sampler",
@@ -17,7 +32,6 @@ const projects = [
         repoLink: "https://github.com/isaacangyu/musicSampler",
         image: regexImg,
         technologies: ["Python", "Flask", "HTML", "CSS", "PyDub", "Pygame"],
-        date: "Feb 2025"
     },
     {
         title: "Formal Regular Expression Parser",
@@ -26,7 +40,6 @@ const projects = [
         repoLink: "https://github.com/ronit127/formal-regular-expressions",
         image: regexImg,
         technologies: ["Python", "PyScript", "NetworkX", "HTML", "CSS"],
-        date: "Nov 2024"
     },
     {
         title: "StudyBud: AI Study Plan Generator",
@@ -35,7 +48,6 @@ const projects = [
         repoLink: "https://github.com/rishi-m100/ai-study-plan-generator-app",
         image: regexImg,
         technologies: ["JavaScript", "React", "NextJS", "Python", "OpenAI API", "Flask"],
-        date: "Feb 2024"
     }
 ];
 

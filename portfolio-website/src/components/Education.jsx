@@ -43,19 +43,19 @@ function Education() {
         
         <div className="max-w-4xl mx-auto">
           <div className="p-8 md:p-10 rounded-xl" style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.28)',
+            backgroundColor: 'rgba(255, 255, 255, 0.6)',
             border: '0px solid rgba(62, 62, 62, 0.4)',
             boxShadow: '0px 1px 2px grey'
           }}>
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
               <div>
-                <h3 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-2">
+                <h3 className="text-2xl md:text-3xl font-semibold text-slate-1000 mb-2">
                   University of Illinois Urbana-Champaign
                 </h3>
                 <p className="text-lg text-slate-700 mb-2">
                   Bachelor of Science in Computer Science and Learning Sciences
                 </p>
-                <p className="text-base text-slate-600 flex items-center gap-1">
+                <p className="text-base text-slate-700 flex items-center gap-1">
                   <span className="font-semibold">GPA:</span> 4.0 
                   <span className="text-slate-400">/</span>
                   4.0
@@ -69,16 +69,16 @@ function Education() {
 
             <div className="space-y-4 mt-6">
               <div>
-                <h4 className="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">
+                <h4 className="text-sm font-semibold text-slate-800 uppercase tracking-wide mb-2">
                   What I was Involved In
                 </h4>
-                <p className="text-base text-slate-600">
+                <p className="text-base text-slate-700">
                   CS361 Course Assistant, Project:Code Project Lead, ACM Game Builders Dev, PointVR VR Team
                 </p>
               </div>
 
               <div>
-                <h4 className="text-sm font-semibold text-slate-700 uppercase tracking-wide mb-2">
+                <h4 className="text-sm font-semibold text-slate-800 uppercase tracking-wide mb-2">
                   Courses I Took
                 </h4>
                 

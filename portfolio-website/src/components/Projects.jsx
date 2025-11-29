@@ -1,4 +1,3 @@
-import React from 'react';
 import projects from '../assets/data/projects';
 import { 
   SiPython, SiJavascript, SiReact, SiFlask, SiHtml5, SiCss3, 
@@ -28,7 +27,7 @@ function Projects() {
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="p-8 rounded-xl" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.28)',
+              backgroundColor: 'rgba(255, 255, 255, 0.6)',
               border: '0px solid rgba(62, 62, 62, 0.4)',
               boxShadow: '0px 1px 2px grey'
             }}>
@@ -47,7 +46,7 @@ function Projects() {
                   <h3 className="card-title">
                     {project.title}
                   </h3>
-                  <div className="text-mono text-sm text-slate-400">
+                  <div className="text-mono text-sm text-slate-700">
                     {String(index + 1).padStart(2, '0')}
                   </div>
                 </div>
@@ -87,13 +86,13 @@ function Projects() {
                       href={project.liveLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="flex-1 text-center px-4 py-2 rounded-lg text-white font-medium transition-opacity hover:opacity-75"
+                      className="inline-block px-8 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-75"
                       style={{
-                        background: 'linear-gradient(135deg, #3A2456e6 0%, #3A2456b3 50%, #3A2456cc 100%)',
+                        background: 'linear-gradient(135deg, #2D1B3Ee6 0%, #2D1B3Eb3 50%, #2D1B3Ecc 100%)',
                         backdropFilter: 'blur(16px) saturate(180%)',
                         WebkitBackdropFilter: 'blur(16px) saturate(180%)',
                         border: '2.5px solid rgba(255, 255, 255, 0.25)',
-                        boxShadow: '0 8px 7px #3A245699'
+                        boxShadow: '0 2px 7px #2D1B3E99'
                       }}
                     >
                       View Live
@@ -104,13 +103,13 @@ function Projects() {
                       href={project.repoLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="flex-1 text-center px-4 py-2 rounded-lg text-white font-medium transition-opacity hover:opacity-75"
+                      className="inline-block px-8 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-75"
                       style={{
-                        background: 'linear-gradient(135deg, #4A3362e6 0%, #4A3362b3 50%, #4A3362cc 100%)',
+                        background: 'linear-gradient(135deg, #2D1B3Ee6 0%, #2D1B3Eb3 50%, #2D1B3Ecc 100%)',
                         backdropFilter: 'blur(16px) saturate(180%)',
                         WebkitBackdropFilter: 'blur(16px) saturate(180%)',
                         border: '2.5px solid rgba(255, 255, 255, 0.25)',
-                        boxShadow: '0 8px 7px #4A336299'
+                        boxShadow: '0 2px 7px #2D1B3E99'
                       }}
                     >
                       Source
@@ -125,12 +124,12 @@ function Projects() {
         {/* Call to Action */}
         <div className="mt-24 text-center">
           <div className="p-12 max-w-4xl mx-auto rounded-xl" style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.28)',
+            backgroundColor: 'rgba(255, 255, 255, 0.6)',
             border: '0px solid rgba(62, 62, 62, 0.4)',
             boxShadow: '0px 1px 2px grey'
           }}>
             <h3 className="text-3xl font-light text-slate-900 mb-6">More Projects</h3>
-            <p className="text-lg font-normal text-slate-600 mb-8">
+            <p className="text-lg font-normal text-slate-700 mb-8">
               Explore my complete portfolio on GitHub to see all my work and contributions.
             </p>
             <a 
@@ -143,7 +142,7 @@ function Projects() {
                 backdropFilter: 'blur(16px) saturate(180%)',
                 WebkitBackdropFilter: 'blur(16px) saturate(180%)',
                 border: '2.5px solid rgba(255, 255, 255, 0.25)',
-                boxShadow: '0 8px 7px #2D1B3E99'
+                boxShadow: '0 2px 7px #2D1B3E99'
               }}
             >
               View on GitHub

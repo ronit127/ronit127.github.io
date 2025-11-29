@@ -127,7 +127,7 @@ const CardNav = ({
 
   let greeting = "Hello! I'm";
   let name = "Ronit Rout";
-  let desc = "I'm a student developer who enjoys creating thoughtful, and easy-to-use software.";
+  let desc = "I'm a student developer who enjoys creating thoughtful software.";
 
   return (
     <div
@@ -137,7 +137,7 @@ const CardNav = ({
         ref={navRef}
         className={`card-nav ${isExpanded ? 'open' : ''} block h-[100px] p-10 relative rounded-xl overflow-hidden will-change-[height]`}
         style={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0.28)',
+          backgroundColor: 'rgba(255, 255, 255, 0.6)',
           border: '0px solid rgba(62, 62, 62, 0.4)',
           boxShadow: `0px 1px 2px grey`,
         }}
@@ -163,9 +163,9 @@ const CardNav = ({
             />
           </div>
 
-          <div className="logo-container flex flex-col items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none text-center">
-            <span className="logo text-[32px] md:text-[42px] font-display leading-tight">{greeting} <span className='font-bold'>{name}</span></span>
-            {desc && <span className="logo-desc text-[14px] md:text-[16px] font-normal text-slate-600 mt-1">{desc}</span>}
+          <div className="logo-container flex flex-col items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none text-center px-4">
+            <span className="logo text-[32px] md:text-[42px] font-display leading-tight whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span></span>
+            {desc && <span className="logo-desc text-[14px] md:text-[16px] font-normal text-slate-800 mt-1 max-w-full break-words">{desc}</span>}
           </div>
 
         </div>

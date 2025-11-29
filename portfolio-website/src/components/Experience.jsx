@@ -41,7 +41,7 @@ function Experience() {
         <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
             <div key={index} className="p-8 md:p-10 rounded-xl hover:shadow-lg transition-shadow duration-300" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.28)',
+              backgroundColor: 'rgba(255, 255, 255, 0.6)',
               border: '0px solid rgba(62, 62, 62, 0.4)',
               boxShadow: '0px 1px 2px grey'
             }}>
@@ -64,8 +64,8 @@ function Experience() {
               <ul className="space-y-3 mt-6">
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-slate-400 mr-3 mt-1.5 flex-shrink-0">•</span>
-                    <span className="text-base text-slate-600 leading-relaxed">
+                    <span className="text-slate-400 mr-3 flex-shrink-0">•</span>
+                    <span className="text-base text-slate-700 leading-relaxed">
                       {highlight}
                     </span>
                   </li>

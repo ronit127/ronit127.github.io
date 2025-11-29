@@ -86,13 +86,13 @@ function Projects() {
                       href={project.liveLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="inline-block px-8 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-75"
+                      className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                       style={{
-                        background: 'linear-gradient(135deg, #2D1B3Ee6 0%, #2D1B3Eb3 50%, #2D1B3Ecc 100%)',
+                        background: '#3A2456b3',
                         backdropFilter: 'blur(16px) saturate(180%)',
                         WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                        border: '2.5px solid rgba(255, 255, 255, 0.25)',
-                        boxShadow: '0 2px 7px #2D1B3E99'
+                        border: '1.5px solid #3A245650',
+                        boxShadow: '0px 1px 3px #3A245666'
                       }}
                     >
                       View Live
@@ -103,13 +103,13 @@ function Projects() {
                       href={project.repoLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="inline-block px-8 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-75"
+                      className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                       style={{
-                        background: 'linear-gradient(135deg, #2D1B3Ee6 0%, #2D1B3Eb3 50%, #2D1B3Ecc 100%)',
+                        background: '#3A2456b3',
                         backdropFilter: 'blur(16px) saturate(180%)',
                         WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                        border: '2.5px solid rgba(255, 255, 255, 0.25)',
-                        boxShadow: '0 2px 7px #2D1B3E99'
+                        border: '1.5px solid #3A245650',
+                        boxShadow: '0px 1px 3px #3A245666'
                       }}
                     >
                       Source
@@ -136,13 +136,13 @@ function Projects() {
               href="https://github.com/ronit127" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block px-6 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-75"
+              className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
               style={{
-                background: 'linear-gradient(135deg, #2D1B3Ee6 0%, #2D1B3Eb3 50%, #2D1B3Ecc 100%)',
+                background: '#3A2456b3',
                 backdropFilter: 'blur(16px) saturate(180%)',
                 WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                border: '2.5px solid rgba(255, 255, 255, 0.25)',
-                boxShadow: '0 2px 7px #2D1B3E99'
+                border: '1.5px solid #3A245650',
+                boxShadow: '0px 1px 3px #3A245666'
               }}
             >
               View on GitHub

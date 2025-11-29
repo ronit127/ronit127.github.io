@@ -3,7 +3,7 @@ function Experience() {
   const experiences = [
     {
       title: 'Software Engineer Intern',
-      company: 'Butterflo Inc.',
+      company: 'Butterflo',
       location: 'Remote',
       period: 'Aug 2025 - Present',
       highlights: [

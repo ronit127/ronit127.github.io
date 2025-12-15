@@ -11,6 +11,23 @@ function DarkModeToggle() {
       return false;
     }
   });
+  const [hasSpace, setHasSpace] = useState(true);
+
+  useEffect(() => {
+    const checkSpace = () => {
+      const isMobile = window.innerWidth < 640;
+      const isZoomedIn = window.innerHeight < 600;
+      setHasSpace(!isMobile && !isZoomedIn);
+    };
+
+    const onResize = () => checkSpace();
+    window.addEventListener('resize', onResize, { passive: true });
+    checkSpace();
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
 
   useEffect(() => {
     try {
@@ -25,8 +42,10 @@ function DarkModeToggle() {
     }
   }, [dark]);
 
+  if (!hasSpace) return null;
+
   return (
-    <div className="fixed bottom-8 left-8 z-50">
+    <div className="fixed bottom-8 left-8 z-[9999]">
       <button
         role="switch"
         aria-checked={dark}
@@ -34,7 +53,7 @@ function DarkModeToggle() {
         onClick={() => setDark(d => !d)}
         className="group relative flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-500 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2"
         style={{
-          backgroundColor: dark ? 'rgba(30, 41, 59, 0.95)' : 'rgba(248, 250, 252, 0.95)',
+          backgroundColor: dark ? '#10142a' : '#f9f9f9',
           border: dark ? '1px solid rgba(71, 85, 105, 0.5)' : '1px solid rgba(203, 213, 225, 0.8)',
           boxShadow: dark 
             ? '0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4)' 
@@ -71,7 +90,7 @@ function DarkModeToggle() {
               width: '16px',
               height: '16px',
               left: dark ? 'calc(100% - 18px)' : '2px',
-              backgroundColor: dark ? '#f8fafc' : '#1e293b',
+              backgroundColor: dark ? '#ffffff' : '#1e293b',
               boxShadow: dark 
                 ? '0 2px 4px rgba(0, 0, 0, 0.4)' 
                 : '0 2px 4px rgba(0, 0, 0, 0.15)'
@@ -85,7 +104,7 @@ function DarkModeToggle() {
           style={{
             opacity: dark ? 1 : 0.3,
             transform: dark ? 'rotate(0deg) scale(1)' : 'rotate(-180deg) scale(0.8)',
-            color: dark ? '#f8fafc' : '#64748b'
+            color: dark ? '#ffffff' : '#64748b'
           }}
         >
           <FiMoon size={18} strokeWidth={2.5} aria-hidden="true" />

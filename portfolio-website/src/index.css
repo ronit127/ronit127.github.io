@@ -811,6 +811,10 @@ body.dark,
   z-index: 99;
 }
 
+.z-\[9999\] {
+  z-index: 9999;
+}
+
 .order-1 {
   order: 1;
 }
@@ -942,6 +946,10 @@ body.dark,
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-\[80px\] {
+  min-height: 80px;
 }
 
 .w-\[40px\] {
@@ -1147,6 +1155,10 @@ body.dark,
   scroll-behavior: smooth;
 }
 
+.whitespace-normal {
+  white-space: normal;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -1207,6 +1219,14 @@ body.dark,
   padding: 24px 28px;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
+.p-\[20px_24px\] {
+  padding: 20px 24px;
+}
+
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1245,6 +1265,11 @@ body.dark,
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .text-left {
@@ -1301,6 +1326,18 @@ body.dark,
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-\[12px\] {
+  font-size: 12px;
+}
+
+.text-\[15px\] {
+  font-size: 15px;
+}
+
+.text-\[20px\] {
+  font-size: 20px;
 }
 
 .font-bold {
@@ -1664,6 +1701,28 @@ body.dark .hover\:text-slate-900:hover,
   opacity: 0.75;
 }
 
+@media (min-width: 640px) {
+  .sm\:min-h-\[100px\] {
+    min-height: 100px;
+  }
+
+  .sm\:text-\[14px\] {
+    font-size: 14px;
+  }
+
+  .sm\:text-\[17px\] {
+    font-size: 17px;
+  }
+
+  .sm\:text-\[24px\] {
+    font-size: 24px;
+  }
+
+  .sm\:text-\[28px\] {
+    font-size: 28px;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:absolute {
     position: absolute;
@@ -1735,8 +1794,30 @@ body.dark .hover\:text-slate-900:hover,
     gap: 16px;
   }
 
+  .md\:whitespace-nowrap {
+    white-space: nowrap;
+  }
+
   .md\:p-10 {
     padding: 2.5rem;
+  }
+
+  .md\:p-6 {
+    padding: 1.5rem;
+  }
+
+  .md\:p-\[24px_28px\] {
+    padding: 24px 28px;
+  }
+
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .md\:text-right {

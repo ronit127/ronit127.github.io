@@ -19,35 +19,31 @@ const CardNav = ({
     const navEl = navRef.current;
     if (!navEl) return 260;
 
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) {
-      const contentEl = navEl.querySelector('.card-nav-content');
-      if (contentEl) {
-        const wasVisible = contentEl.style.visibility;
-        const wasPointerEvents = contentEl.style.pointerEvents;
-        const wasPosition = contentEl.style.position;
-        const wasHeight = contentEl.style.height;
+    const contentEl = navEl.querySelector('.card-nav-content');
+    if (!contentEl) return 360;
 
-        contentEl.style.visibility = 'visible';
-        contentEl.style.pointerEvents = 'auto';
-        contentEl.style.position = 'static';
-        contentEl.style.height = 'auto';
+    const wasVisible = contentEl.style.visibility;
+    const wasPointerEvents = contentEl.style.pointerEvents;
+    const wasPosition = contentEl.style.position;
+    const wasHeight = contentEl.style.height;
 
-        contentEl.offsetHeight;
+    contentEl.style.visibility = 'visible';
+    contentEl.style.pointerEvents = 'auto';
+    contentEl.style.position = 'static';
+    contentEl.style.height = 'auto';
 
-        const topBar = 100;
-        const padding = 24;
-        const contentHeight = contentEl.scrollHeight;
+    contentEl.offsetHeight;
 
-        contentEl.style.visibility = wasVisible;
-        contentEl.style.pointerEvents = wasPointerEvents;
-        contentEl.style.position = wasPosition;
-        contentEl.style.height = wasHeight;
+    const topBar = 100;
+    const padding = 24;
+    const contentHeight = contentEl.scrollHeight;
 
-        return topBar + contentHeight + padding;
-      }
-    }
-    return 360;
+    contentEl.style.visibility = wasVisible;
+    contentEl.style.pointerEvents = wasPointerEvents;
+    contentEl.style.position = wasPosition;
+    contentEl.style.height = wasHeight;
+
+    return topBar + contentHeight + padding;
   };
 
   const createTimeline = () => {
@@ -132,13 +128,19 @@ const CardNav = ({
   return (
     <div
       className={`card-nav-container w-[95%] max-w-[1200px] z-[99] mx-auto ${className}`}
-      style={{ transform: 'scale(1.2)', transformOrigin: 'center top' }}
+      style={{ 
+        transform: 'scale(1)',
+        transformOrigin: 'center top',
+        transitionProperty: 'transform',
+        transitionDuration: '300ms',
+        transitionTimingFunction: 'ease-out'
+      }}
     >
       <nav
         ref={navRef}
-        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} block h-[100px] p-10 relative rounded-xl overflow-hidden will-change-[height]`}
+        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} block h-[100px] p-6 md:p-10 relative rounded-xl overflow-hidden will-change-[height]`}
       >
-        <div className="card-nav-top absolute inset-x-0 top-0 h-[100px] flex items-center justify-between px-6 z-[2]">
+        <div className="card-nav-top absolute inset-x-0 top-0 h-[100px] flex items-center justify-between px-4 md:px-6 z-[2]">
           <div
             className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} group h-full flex flex-col items-center justify-center cursor-pointer gap-[8px] order-2 md:order-none`}
             onClick={toggleMenu}
@@ -158,23 +160,23 @@ const CardNav = ({
             />
           </div>
 
-          <div className="logo-container flex flex-col items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none text-center px-4">
-            <span className="logo text-[32px] md:text-[42px] font-display leading-tight whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span></span>
-            {desc && <span className="logo-desc text-[14px] md:text-[16px] font-display mt-1 max-w-full break-words">{desc}</span>}
+          <div className="logo-container flex flex-col items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none text-center px-2 md:px-4">
+            <span className="logo text-[24px] sm:text-[28px] md:text-[42px] font-display leading-tight whitespace-normal md:whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span></span>
+            {desc && <span className="logo-desc text-[12px] sm:text-[14px] md:text-[16px] font-display mt-1 max-w-full break-words">{desc}</span>}
           </div>
 
         </div>
 
         <div
-          className={`card-nav-content absolute left-0 right-0 top-[100px] bottom-0 p-6 flex flex-col font-display items-stretch gap-4 justify-start z-[1] ${
+          className={`card-nav-content absolute left-0 right-0 top-[100px] bottom-0 p-4 md:p-6 flex flex-col font-display items-stretch gap-3 md:gap-[16px] justify-start z-[1] ${
             isExpanded ? 'visible pointer-events-auto' : 'invisible pointer-events-none'
-          } md:flex-row md:items-end md:gap-[16px]`}
+          } md:flex-row md:items-end`}
           aria-hidden={!isExpanded}
         >
           {(items || []).slice(0, 3).map((item, idx) => (
             <div
               key={`${item.label}-${idx}`}
-              className="nav-card select-none relative flex flex-col gap-3 p-[24px_28px] rounded-xl min-w-0 flex-[1_1_auto] h-auto min-h-[100px] md:h-full md:min-h-0 md:flex-[1_1_0%] transition-transform duration-300 hover:translate-y-[-4px]"
+              className="nav-card select-none relative flex flex-col gap-3 p-[20px_24px] md:p-[24px_28px] rounded-xl min-w-0 flex-[1_1_auto] h-auto min-h-[80px] sm:min-h-[100px] md:h-full md:min-h-0 md:flex-[1_1_0%] transition-transform duration-300 hover:translate-y-[-4px]"
               ref={setCardRef(idx)}
               style={{ 
                 background: `
@@ -188,14 +190,14 @@ const CardNav = ({
                   boxShadow: `0 8px 7px ${item.bgColor}99`
               }}
             >
-              <div className="nav-card-label font-normal tracking-[-0.5px] text-[24px] md:text-[28px]">
+              <div className="nav-card-label font-normal tracking-[-0.5px] text-[20px] sm:text-[24px] md:text-[28px]">
                 {item.label}
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-[4px]">
                 {item.links?.map((lnk, i) => (
                   <a
                     key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex items-center gap-[8px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-45 text-[17px] md:text-[19px]"
+                    className="nav-card-link inline-flex items-center gap-[8px] no-underline cursor-pointer transition-opacity duration-300 hover:opacity-45 text-[15px] sm:text-[17px] md:text-[19px]"
                     href={lnk.href}
                     aria-label={lnk.ariaLabel}
                   >

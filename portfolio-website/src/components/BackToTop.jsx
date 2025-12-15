@@ -6,9 +6,15 @@ function BackToTop() {
   const [isDark, setIsDark] = useState(() => 
     typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
   );
+  const [hasSpace, setHasSpace] = useState(true);
 
   useEffect(() => {
-    const check = () => setVisible(window.scrollY >= window.innerHeight);
+    const check = () => {
+      setVisible(window.scrollY >= window.innerHeight);
+      const isMobile = window.innerWidth < 640;
+      const isZoomedIn = window.innerHeight < 600;
+      setHasSpace(!isMobile && !isZoomedIn);
+    };
 
     const onScroll = () => check();
 
@@ -20,7 +26,10 @@ function BackToTop() {
       }
     };
 
+    const onResize = () => check();
+
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
     document.addEventListener('click', onDocClick);
 
     // initial check
@@ -28,6 +37,7 @@ function BackToTop() {
 
     return () => {
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
       document.removeEventListener('click', onDocClick);
     };
   }, []);
@@ -43,7 +53,7 @@ function BackToTop() {
 
   const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  if (!visible) return null;
+  if (!visible || !hasSpace) return null;
 
   return (
     <button
@@ -53,7 +63,7 @@ function BackToTop() {
       style={{
         width: '52px',
         height: '52px',
-        backgroundColor: isDark ? 'rgba(30, 41, 59, 0.95)' : 'rgba(248, 250, 252, 0.95)',
+        backgroundColor: isDark ? '#10142a' : '#f9f9f9',
         border: isDark ? '1px solid rgba(71, 85, 105, 0.5)' : '1px solid rgba(203, 213, 225, 0.8)',
         boxShadow: isDark 
           ? '0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4)' 

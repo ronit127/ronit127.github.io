@@ -132,15 +132,11 @@ const CardNav = ({
   return (
     <div
       className={`card-nav-container w-[95%] max-w-[1200px] z-[99] mx-auto ${className}`}
+      style={{ transform: 'scale(1.2)', transformOrigin: 'center top' }}
     >
       <nav
         ref={navRef}
-        className={`card-nav ${isExpanded ? 'open' : ''} block h-[100px] p-10 relative rounded-xl overflow-hidden will-change-[height]`}
-        style={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0.6)',
-          border: '0px solid rgba(62, 62, 62, 0.4)',
-          boxShadow: `0px 1px 2px grey`,
-        }}
+        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} block h-[100px] p-10 relative rounded-xl overflow-hidden will-change-[height]`}
       >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[100px] flex items-center justify-between px-6 z-[2]">
           <div
@@ -149,7 +145,6 @@ const CardNav = ({
             role="button"
             aria-label={isExpanded ? 'Close menu' : 'Open menu'}
             tabIndex={0}
-            style={{ color: menuColor || '#000' }}
           >
             <div
               className={`hamburger-line w-[40px] h-[3px] bg-current transition-[transform,opacity,margin] duration-300 ease-linear [transform-origin:50%_50%] ${
@@ -165,13 +160,13 @@ const CardNav = ({
 
           <div className="logo-container flex flex-col items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none text-center px-4">
             <span className="logo text-[32px] md:text-[42px] font-display leading-tight whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span></span>
-            {desc && <span className="logo-desc text-[14px] md:text-[16px] font-normal text-slate-800 mt-1 max-w-full break-words">{desc}</span>}
+            {desc && <span className="logo-desc text-[14px] md:text-[16px] font-display mt-1 max-w-full break-words">{desc}</span>}
           </div>
 
         </div>
 
         <div
-          className={`card-nav-content absolute left-0 right-0 top-[100px] bottom-0 p-6 flex flex-col items-stretch gap-4 justify-start z-[1] ${
+          className={`card-nav-content absolute left-0 right-0 top-[100px] bottom-0 p-6 flex flex-col font-display items-stretch gap-4 justify-start z-[1] ${
             isExpanded ? 'visible pointer-events-auto' : 'invisible pointer-events-none'
           } md:flex-row md:items-end md:gap-[16px]`}
           aria-hidden={!isExpanded}

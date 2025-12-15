@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Bitter', 'system-ui', 'sans-serif'],
-        'display': ['Bitter', 'system-ui', 'sans-serif'],
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'display': ['Bitter', 'Georgia', 'serif'],
       },
       fontWeight: {
         'black': '900',

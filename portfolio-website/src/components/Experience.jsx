@@ -1,3 +1,4 @@
+import { FiArrowRight } from 'react-icons/fi';
 
 function Experience() {
   const experiences = [
@@ -40,14 +41,10 @@ function Experience() {
         
         <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
-            <div key={index} className="p-8 md:p-10 rounded-xl hover:shadow-lg transition-shadow duration-300" style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.6)',
-              border: '0px solid rgba(62, 62, 62, 0.4)',
-              boxShadow: '0px 1px 2px grey'
-            }}>
+            <div key={index} className="p-8 md:p-10 rounded-xl glass-surface hover:shadow-lg transition-shadow duration-300">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-1">
+                  <h3 className="card-title2">
                     {exp.title}
                   </h3>
                   <p className="text-lg text-slate-700 mb-1">
@@ -55,7 +52,7 @@ function Experience() {
                   </p>
                 </div>
                 <div className="mt-3 md:mt-0">
-                  <p className="text-base font-medium text-slate-700 md:text-right">
+                  <p className="text-slate-900 md:text-right">
                     {exp.period}
                   </p>
                 </div>
@@ -64,8 +61,8 @@ function Experience() {
               <ul className="space-y-3 mt-6">
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-slate-400 mr-3 flex-shrink-0">•</span>
-                    <span className="text-base text-slate-700 leading-relaxed">
+                    <FiArrowRight className="mr-3 flex-shrink-0 mt-0.5" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
+                    <span className="font-sans text-[17px] font-normal text-slate-700 tracking-wide leading-snug" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'}}>
                       {highlight}
                     </span>
                   </li>

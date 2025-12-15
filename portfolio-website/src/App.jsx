@@ -3,6 +3,8 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import CardNav from './components/CardNav';
 import LiquidEther from './components/LiquidEther';
+import BackToTop from './components/BackToTop';
+import DarkModeToggle from './components/DarkModeToggle';
 
 const App = () => {
   const items = [
@@ -37,6 +39,7 @@ const App = () => {
 
   return (
     <div className="page-bg">
+      <DarkModeToggle />
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <LiquidEther
           colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
@@ -70,6 +73,7 @@ const App = () => {
         <Education />
         <Experience />
         <Projects />
+        <BackToTop />
       </div>
     </div>
   );

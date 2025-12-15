@@ -10,7 +10,7 @@ const projects = [
         technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
     },
     {
-        title: "PrairieLearn Boolean Expression Element",
+        title: "PrairieLearn Boolean Element",
         description: "A boolean expression evaluator serving as an add-on to the Prairielearn platform",
         liveLink: "",
         repoLink: "",

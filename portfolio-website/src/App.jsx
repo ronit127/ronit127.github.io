@@ -1,13 +1,15 @@
+import { useEffect, useState, useMemo } from 'react';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import CardNav from './components/CardNav';
 import LiquidEther from './components/LiquidEther';
+import Starry from './components/Starry';
 import BackToTop from './components/BackToTop';
 import DarkModeToggle from './components/DarkModeToggle';
 
 const App = () => {
-  const items = [
+  const items = useMemo(() => [
     {
       label: "About",
       bgColor: "#2D1B3E",
@@ -35,29 +37,56 @@ const App = () => {
         { label: "GitHub", href: "https://github.com/ronit127", ariaLabel: "GitHub" }
       ]
     }
-  ];
+  ], []);
+
+  const [isDark, setIsDark] = useState(() => {
+    try {
+      const stored = window.localStorage?.getItem('prefers-dark');
+      if (stored !== null) return stored === 'true';
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch (e) {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    const update = () => setIsDark(document.documentElement.classList.contains('dark'));
+    update();
+    const obs = new MutationObserver(mutations => {
+      for (const m of mutations) {
+        if (m.attributeName === 'class') { update(); break; }
+      }
+    });
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    window.addEventListener('storage', update);
+    return () => { obs.disconnect(); window.removeEventListener('storage', update); };
+  }, []);
 
   return (
     <div className="page-bg">
       <DarkModeToggle />
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <LiquidEther
-          colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
-          mouseForce={2}
-          cursorSize={80}
-          isViscous={true}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.3}
-          isBounce={false}
-          autoDemo={true}
-          autoSpeed={0.4}
-          autoIntensity={1.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-        />
+        {isDark ? (
+          <Starry />
+        ) : (
+          <LiquidEther
+            colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
+            mouseForce={2}
+            cursorSize={80}
+            isViscous={true}
+            viscous={30}
+            iterationsViscous={32}
+            iterationsPoisson={32}
+            resolution={0.3}
+            isBounce={false}
+            autoDemo={true}
+            autoSpeed={0.4}
+            autoIntensity={1.2}
+            takeoverDuration={0.25}
+            autoResumeDelay={3000}
+            autoRampDuration={0.6}
+          />
+        )}
         <CardNav
           items={items}
           baseColor="#fff"

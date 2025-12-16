@@ -11,6 +11,7 @@ const CardNav = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isGlowing, setIsGlowing] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const navRef = useRef(null);
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
@@ -112,6 +113,7 @@ const CardNav = ({
   };
 
   const handleMouseEnter = () => {
+    setIsHovering(true);
     if (isExpanded) return;
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     
@@ -123,6 +125,7 @@ const CardNav = ({
   };
 
   const handleMouseLeave = () => {
+    setIsHovering(false);
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
@@ -159,7 +162,11 @@ const CardNav = ({
             ? '0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2)'
             : undefined,
           transition: 'box-shadow 0.4s ease-out',
-          animation: isGlowing ? 'shake 0.15s infinite' : 'none',
+          animation: isGlowing 
+            ? 'shake 0.15s infinite' 
+            : (!isExpanded && !isHovering) 
+              ? 'subtleShake 2.5s linear infinite'
+              : 'none',
           animationDelay: isGlowing ? '0s' : undefined
         }}
       >
@@ -169,6 +176,15 @@ const CardNav = ({
             25% { transform: translate(-1px, -1px) rotate(-0.25deg); }
             50% { transform: translate(1px, 1px) rotate(0.25deg); }
             75% { transform: translate(-1px, 1px) rotate(-0.25deg); }
+          }
+          @keyframes subtleShake {
+            0% { transform: translateX(0); }
+            2% { transform: translateX(-1px); }
+            4% { transform: translateX(1px) rotate(0.25deg); }
+            6% { transform: translateX(-2px); }
+            8% { transform: translateX(1px) rotate(-0.25deg); }
+            10% { transform: translateX(0); }
+            100% { transform: translateX(0); }
           }
         `}</style>
         <div className="card-nav-top absolute inset-x-0 top-0 h-[120px] flex items-center justify-center px-4 md:px-6 z-[2]">

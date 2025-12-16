@@ -166,14 +166,14 @@ const CardNav = ({
         <style>{`
           @keyframes shake {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-2px, -2px) rotate(-0.5deg); }
-            50% { transform: translate(2px, 2px) rotate(0.5deg); }
-            75% { transform: translate(-2px, 2px) rotate(-0.5deg); }
+            25% { transform: translate(-1px, -1px) rotate(-0.25deg); }
+            50% { transform: translate(1px, 1px) rotate(0.25deg); }
+            75% { transform: translate(-1px, 1px) rotate(-0.25deg); }
           }
         `}</style>
         <div className="card-nav-top absolute inset-x-0 top-0 h-[120px] flex items-center justify-center px-4 md:px-6 z-[2]">
           <div className="logo-container flex flex-col items-center justify-center text-center px-2 md:px-4">
-            <span className="logo text-[24px] sm:text-[32px] md:text-[50px] font-display leading-tight whitespace-normal md:whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span></span>
+            <span className="logo text-[24px] sm:text-[32px] md:text-[50px] font-display leading-tight whitespace-normal md:whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span>.</span>
             {desc && <span className="logo-desc text-[18px] sm:text-[20px] md:text-[23px] font-display mt-1 max-w-full break-words">{desc}</span>}
           </div>
         </div>
@@ -184,7 +184,7 @@ const CardNav = ({
           } md:flex-row md:items-end`}
           aria-hidden={!isExpanded}
         >
-          {(items || []).slice(0, 3).map((item, idx) => (
+          {(items || []).slice(0, 3).map((item, idx) => ( 
             <div
               key={`${item.label}-${idx}`}
               className="nav-card select-none relative flex flex-col gap-3 p-[24px_29px] md:p-[29px_34px] rounded-xl min-w-0 flex-[1_1_auto] h-auto min-h-[96px] sm:min-h-[120px] md:h-full md:min-h-0 md:flex-[1_1_0%] transition-transform duration-300 hover:translate-y-[-5px]"

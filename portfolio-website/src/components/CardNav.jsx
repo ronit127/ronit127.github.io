@@ -249,8 +249,7 @@ const CardNav = ({
                     key={`${lnk.label}-${i}`}
                     className="nav-card-link inline-flex items-center gap-[10px] no-underline transition-opacity duration-300 hover:opacity-45 text-[18px] sm:text-[20px] md:text-[23px] cursor-pointer"
                     href={lnk.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(idx === 2 ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     aria-label={lnk.ariaLabel}
                   >
                     {idx === 2 ? (

@@ -154,7 +154,7 @@ const CardNav = ({
     >
       <nav
         ref={navRef}
-        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-17 md:p-10 relative rounded-xl overflow-hidden will-change-[height] ${isExpanded ? 'cursor-default' : 'cursor-pointer'}`}
+        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-xl overflow-hidden will-change-[height] ${isExpanded ? 'cursor-default' : 'cursor-pointer'}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -177,15 +177,38 @@ const CardNav = ({
             50% { transform: translate(1px, 1px) rotate(0.25deg); }
             75% { transform: translate(-1px, 1px) rotate(-0.25deg); }
           }
-          @keyframes subtleShake {
-            0% { transform: translateX(0); }
-            2% { transform: translateX(-1px); }
-            4% { transform: translateX(1px) rotate(0.25deg); }
-            6% { transform: translateX(-2px); }
-            8% { transform: translateX(1px) rotate(-0.25deg); }
-            10% { transform: translateX(0); }
+         @keyframes subtleShake {
+            0%   { transform: translateX(0) rotate(0); }
+
+            /* soft irregular micro-movements */
+            3%   { transform: translateX(-0.6px) rotate(-0.12deg); }
+            5%   { transform: translateX(0.9px) rotate(0.18deg); }
+            7%   { transform: translateX(-1.1px) rotate(-0.22deg); }
+            9%   { transform: translateX(0.7px) rotate(0.14deg); }
+            11%  { transform: translateX(0); }
+
+            /* pause, but not dead */
+            18%  { transform: translateX(0.2px); }
+
+            /* second cluster, slightly different feel */
+            21%  { transform: translateX(-0.8px) rotate(-0.16deg); }
+            23%  { transform: translateX(1.2px) rotate(0.24deg); }
+            26%  { transform: translateX(-0.9px) rotate(-0.18deg); }
+            28%  { transform: translateX(0.6px) rotate(0.12deg); }
+            31%  { transform: translateX(0); }
+
+            /* longer rest */
+            45%  { transform: translateX(0); }
+
+            /* faint residual movement */
+            48%  { transform: translateX(-0.4px) rotate(-0.08deg); }
+            52%  { transform: translateX(0.5px) rotate(0.1deg); }
+            56%  { transform: translateX(-0.3px); }
+            60%  { transform: translateX(0); }
+
             100% { transform: translateX(0); }
           }
+
         `}</style>
         <div className="card-nav-top absolute inset-x-0 top-0 h-[120px] flex items-center justify-center px-4 md:px-6 z-[2]">
           <div className="logo-container flex flex-col items-center justify-center text-center px-2 md:px-4">
@@ -226,6 +249,8 @@ const CardNav = ({
                     key={`${lnk.label}-${i}`}
                     className="nav-card-link inline-flex items-center gap-[10px] no-underline transition-opacity duration-300 hover:opacity-45 text-[18px] sm:text-[20px] md:text-[23px] cursor-pointer"
                     href={lnk.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={lnk.ariaLabel}
                   >
                     {idx === 2 ? (

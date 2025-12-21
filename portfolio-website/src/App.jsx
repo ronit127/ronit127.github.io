@@ -7,6 +7,7 @@ import LiquidEther from './components/LiquidEther';
 import Starry from './components/Starry';
 import BackToTop from './components/BackToTop';
 import DarkModeToggle from './components/DarkModeToggle';
+import Footer from './components/Footer';
 
 const App = () => {
   const items = useMemo(() => [
@@ -103,6 +104,7 @@ const App = () => {
         <Experience />
         <Projects />
         <BackToTop />
+        <Footer />
       </div>
     </div>
   );

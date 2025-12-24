@@ -8,6 +8,7 @@ import Starry from './components/Starry';
 import BackToTop from './components/BackToTop';
 import DarkModeToggle from './components/DarkModeToggle';
 import Footer from './components/Footer';
+import Construction from './components/Construction';
 
 const App = () => {
   const items = useMemo(() => [
@@ -98,13 +99,14 @@ const App = () => {
         />
       </div>
       
-      {/* Rest of content */}
       <div className="relative z-10">
         <Education />
         <Experience />
         <Projects />
         <BackToTop />
+        <Construction />
         <Footer />
+       
       </div>
     </div>
   );

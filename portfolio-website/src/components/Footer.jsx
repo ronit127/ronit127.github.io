@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 
 const Footer = () => {
@@ -23,66 +24,29 @@ const Footer = () => {
     return () => { obs.disconnect(); };
   }, []);
 
-  const hazardColor = '#f59e0b'; // Sun color from DarkModeToggle
-  const bgColor = isDark ? '#1a1a2e' : '#f5f5f5';
-  const textColor = isDark ? '#e0e0e0' : '#333333';
-
   return (
     <footer
-      className="relative w-full overflow-hidden py-8"
+      className="relative w-full py-8"
       style={{
-        backgroundColor: bgColor,
+        backgroundColor: isDark ? '#1a1a2e' : '#f5f5f5',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
       }}
     >
-
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            45deg,
-            ${hazardColor},
-            ${hazardColor} 10px,
-            transparent 10px,
-            transparent 20px
-          )`
-        }}
-      />
-
-      <div className="relative z-10 overflow-hidden">
-        <div
-          className="flex whitespace-nowrap"
+      <div className="relative z-10">
+        <p 
+          className="text-sm font-light"
           style={{
-            animation: 'scroll 30s linear infinite',
-            width: 'fit-content'
+            color: isDark ? '#e0e0e0' : '#333333',
+            opacity: 0.7,
+            textAlign: 'center',
+            margin: 0
           }}
         >
-          {[...Array(4)].map((_, idx) => (
-            <span
-              key={idx}
-              className="mx-8 text-xl sm:text-2xl md:text-3xl font-thin uppercase"
-              style={{
-                color: textColor,
-                textShadow: `0 2px 4px ${isDark ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.1)'}`
-              }}
-            >
-               UNDER CONSTRUCTION • NEW FEATURES ON THE WAY 
-            </span>
-          ))}
-        </div>
+          © 2025 Ronit Rout. All rights reserved.
+        </p>
       </div>
-
-    
-
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-25%);
-          }
-        }
-      `}</style>
     </footer>
   );
 };

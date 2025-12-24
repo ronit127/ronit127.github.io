@@ -95,8 +95,7 @@ function Education() {
                 <h4 className="text-sm font-semibold text-slate-800 uppercase tracking-wide mb-2">
                   Courses I Took
                 </h4>
-                
-                {/* Carousel Container */}
+              
                 <div
                   ref={scrollRef}
                   className="flex gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory mb-3"
@@ -138,7 +137,6 @@ function Education() {
                   })}
                 </div>
 
-                {/* Arrow Controls Below */}
                 <div className="flex justify-between">
                   <button
                     onClick={() => scroll('left')}

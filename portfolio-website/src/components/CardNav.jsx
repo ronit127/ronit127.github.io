@@ -15,7 +15,6 @@ const CardNav = ({
   const navRef = useRef(null);
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
-  const hoverTimeoutRef = useRef(null);
 
   const calculateHeight = () => {
     const navEl = navRef.current;
@@ -71,8 +70,17 @@ const CardNav = ({
   useLayoutEffect(() => {
     const tl = createTimeline();
     tlRef.current = tl;
+    
+    // Auto-open on mount with animation and glow effect
+    setIsGlowing(true);
+    const timer = setTimeout(() => {
+      setIsGlowing(false);
+      setIsExpanded(true);
+      tl?.play(0);
+    }, 600);
 
     return () => {
+      clearTimeout(timer);
       tl?.kill();
       tlRef.current = null;
     };
@@ -114,23 +122,10 @@ const CardNav = ({
 
   const handleMouseEnter = () => {
     setIsHovering(true);
-    if (isExpanded) return;
-    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    
-    setIsGlowing(true);
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsGlowing(false);
-      openMenu();
-    }, 600);
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
-      setIsGlowing(false);
-    }
   };
 
   const setCardRef = i => el => {
@@ -154,9 +149,7 @@ const CardNav = ({
     >
       <nav
         ref={navRef}
-        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-xl overflow-hidden will-change-[height] ${isExpanded ? 'cursor-default' : 'cursor-pointer'}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-xl overflow-hidden will-change-[height]`}
         style={{
           boxShadow: isGlowing 
             ? '0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2)'

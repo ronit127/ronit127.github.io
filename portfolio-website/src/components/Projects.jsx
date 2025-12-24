@@ -1,7 +1,7 @@
 import projects from '../assets/data/projects';
 import { 
   SiPython, SiJavascript, SiReact, SiFlask, SiHtml5, SiCss3, 
-  SiNextdotjs, SiC, SiRaspberrypi, SiOpenai
+  SiNextdotjs, SiC, SiRaspberrypi, SiOpenai, SiTypescript
 } from 'react-icons/si';
 import { FaFolder, FaFolderOpen } from 'react-icons/fa';
 
@@ -9,6 +9,7 @@ function Projects() {
   const techIcons = {
     'Python': SiPython,
     'JavaScript': SiJavascript,
+    'TypeScript': SiTypescript,
     'React': SiReact,
     'NextJS': SiNextdotjs,
     'Flask': SiFlask,

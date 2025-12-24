@@ -7,7 +7,7 @@ const projects = [
         liveLink: "",
         repoLink: "https://github.com/ronit127/visual-debugger",
         image: regexImg,
-        technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+        technologies: ["TypeScript", "React", "NextJS", "Python", "TailwindCSS", "Flask"],
     },
     {
         title: "PrairieLearn Boolean Element",
@@ -15,7 +15,7 @@ const projects = [
         liveLink: "",
         repoLink: "",
         image: regexImg,
-        technologies: ["Python", "HTML", "CSS", "Mustache"],
+        technologies: ["JavaScript", "Python", "HTML", "CSS", "Mustache"],
     },
     {
         title: "Real-Time TCP Vocoder",

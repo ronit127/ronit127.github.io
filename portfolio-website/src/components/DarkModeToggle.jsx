@@ -51,7 +51,7 @@ function DarkModeToggle() {
         aria-checked={dark}
         aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
         onClick={() => setDark(d => !d)}
-        className="group relative flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-500 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2"
+        className="group relative flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-500 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2"
         style={{
           backgroundColor: dark ? '#10142a' : '#f9f9f9',
           border: dark ? '1px solid rgba(71, 85, 105, 0.5)' : '1px solid rgba(203, 213, 225, 0.8)',

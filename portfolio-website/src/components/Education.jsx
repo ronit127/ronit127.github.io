@@ -42,7 +42,7 @@ function Education() {
         <h2 className="section-title">Education</h2>
         
         <div className="max-w-4xl mx-auto">
-          <div className="p-8 md:p-10 rounded-xl glass-surface">
+          <div className="p-8 md:p-10 rounded-md glass-surface">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start md:gap-8 mb-6">
               <div className="flex flex-col gap-1">
                 <h3 className="card-title leading-tight">

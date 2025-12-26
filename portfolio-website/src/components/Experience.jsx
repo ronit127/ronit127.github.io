@@ -41,7 +41,7 @@ function Experience() {
         
         <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
-            <div key={index} className="p-8 md:p-10 rounded-xl glass-surface hover:shadow-lg transition-shadow duration-300">
+            <div key={index} className="p-8 md:p-10 rounded-md glass-surface hover:shadow-lg transition-shadow duration-300">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
                   <h3 className="card-title2">

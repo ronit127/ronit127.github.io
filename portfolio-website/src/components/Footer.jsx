@@ -29,19 +29,14 @@ const Footer = () => {
       className="relative w-full py-8"
       style={{
         backgroundColor: isDark ? '#1a1a2e' : '#f5f5f5',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
       }}
     >
-      <div className="relative z-10">
+      <div className="relative z-10 text-center">
         <p 
           className="text-sm font-light"
           style={{
             color: isDark ? '#e0e0e0' : '#333333',
-            opacity: 0.7,
-            textAlign: 'center',
-            margin: 0
+            opacity: 0.7
           }}
         >
           © 2025 Ronit Rout. All rights reserved.

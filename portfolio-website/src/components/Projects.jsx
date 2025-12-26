@@ -29,7 +29,7 @@ function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden p-8 rounded-xl glass-surface flex flex-col min-h-[280px] transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px]"
+              className="group relative overflow-hidden p-8 rounded-md glass-surface flex flex-col min-h-[280px] transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px]"
             >
               {/* Project Image */}
               {/* <div className="mb-6 overflow-hidden rounded-xl">
@@ -92,6 +92,7 @@ function Projects() {
                         href={project.liveLink} 
                         target="_blank" 
                         rel="noopener noreferrer" 
+                        aria-label={`Open live project: ${project.title}`}
                         className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                         style={{
                           background: 'var(--accent-purple, #3A2456b3)',
@@ -109,6 +110,7 @@ function Projects() {
                         href={project.repoLink} 
                         target="_blank" 
                         rel="noopener noreferrer" 
+                        aria-label={`Open source code for ${project.title}`}
                          className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                         style={{
                           background: 'var(--accent-purple, #3A2456b3)',
@@ -130,16 +132,17 @@ function Projects() {
         
         {/* Call to Action */}
         <div className="mt-24 text-center">
-          <div className="p-12 max-w-4xl mx-auto rounded-xl glass-surface">
+          <div className="p-12 max-w-4xl mx-auto rounded-md glass-surface">
             <h3 className="text-3xl font-light text-slate-900 mb-6">More Projects</h3>
             <p className="text-lg font-normal text-slate-700 mb-8">
               Explore my complete portfolio on GitHub to see all my work and contributions.
             </p>
-            <a 
-              href="https://github.com/ronit127" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
+              <a 
+                href="https://github.com/ronit127" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="View all projects on GitHub (opens in new tab)"
+                className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
               style={{
                 background: 'var(--accent-purple, #3A2456b3)',
                 backdropFilter: 'blur(16px) saturate(180%)',

@@ -7,7 +7,6 @@ const CardNav = ({
   items,
   className = '',
   ease = 'power3.out',
-  menuColor,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isGlowing, setIsGlowing] = useState(false);
@@ -113,28 +112,13 @@ const CardNav = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [isExpanded]);
 
-  const openMenu = () => {
-    const tl = tlRef.current;
-    if (!tl || isExpanded) return;
-    setIsExpanded(true);
-    tl.play(0);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
-
   const setCardRef = i => el => {
     if (el) cardsRef.current[i] = el;
   };
 
   let greeting = "Hello! I'm";
   let name = "Ronit Rout";
-  let desc = "I'm a student developer who enjoys creating thoughtful software.";
+  let desc = "I enjoy creating thoughtful software for the web.";
 
   return (
     <div
@@ -149,7 +133,7 @@ const CardNav = ({
     >
       <nav
         ref={navRef}
-        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-xl overflow-hidden will-change-[height]`}
+        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-md overflow-hidden will-change-[height]`}
         style={{
           boxShadow: isGlowing 
             ? '0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2)'
@@ -205,7 +189,7 @@ const CardNav = ({
         `}</style>
         <div className="card-nav-top absolute inset-x-0 top-0 h-[120px] flex items-center justify-center px-4 md:px-6 z-[2]">
           <div className="logo-container flex flex-col items-center justify-center text-center px-2 md:px-4">
-            <span className="logo text-[24px] sm:text-[32px] md:text-[50px] font-display leading-tight whitespace-normal md:whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span>.</span>
+            <span className="logo text-[24px] sm:text-[32px] md:text-[50px] font-display leading-tight whitespace-normal md:whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span></span>
             {desc && <span className="logo-desc text-[18px] sm:text-[20px] md:text-[23px] font-display mt-1 max-w-full break-words">{desc}</span>}
           </div>
         </div>
@@ -216,10 +200,10 @@ const CardNav = ({
           } md:flex-row md:items-end`}
           aria-hidden={!isExpanded}
         >
-          {(items || []).slice(0, 3).map((item, idx) => ( 
+          {items.map((item, idx) => ( 
             <div
               key={`${item.label}-${idx}`}
-              className="nav-card select-none relative flex flex-col gap-3 p-[24px_29px] md:p-[29px_34px] rounded-xl min-w-0 flex-[1_1_auto] h-auto min-h-[96px] sm:min-h-[120px] md:h-full md:min-h-0 md:flex-[1_1_0%] transition-transform duration-300 hover:translate-y-[-5px]"
+              className="nav-card select-none relative flex flex-col gap-3 p-[24px_29px] md:p-[29px_34px] rounded-md min-w-0 flex-[1_1_auto] h-auto min-h-[96px] sm:min-h-[120px] md:h-full md:min-h-0 md:flex-[1_1_0%] transition-transform duration-300 hover:translate-y-[-5px]"
               ref={setCardRef(idx)}
               style={{ 
                 background: `
@@ -227,10 +211,7 @@ const CardNav = ({
                   radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%)
                 `,
                 color: item.textColor,
-                backdropFilter: 'blur(16px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                border: '4.2px solid rgba(255, 255, 255, 0.25)',
-                boxShadow: `0 10px 8px ${item.bgColor}99`
+                boxShadow: `0 10px 8px ${item.bgColor}99, inset 0 0 0 4.2px rgba(255, 255, 255, 0.25)`
               }}
             >
               <div className="nav-card-label font-normal tracking-[-0.6px] text-[24px] sm:text-[29px] md:text-[34px]">

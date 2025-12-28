@@ -61,15 +61,10 @@ function BackToTop() {
       aria-label="Back to top"
       className="fixed bottom-8 right-8 z-50 flex items-center justify-center rounded-full transition-colors duration-300 ease-out hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2"
       style={{
-        width: '52px',
-        height: '52px',
+        width: '44px',
+        height: '44px',
         backgroundColor: isDark ? '#10142a' : '#f9f9f9',
         border: isDark ? '1px solid rgba(71, 85, 105, 0.5)' : '1px solid rgba(203, 213, 225, 0.8)',
-        boxShadow: isDark 
-          ? '0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4)' 
-          : '0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
         color: isDark ? '#f8fafc' : '#1e293b'
       }}
     >

@@ -55,11 +55,6 @@ function DarkModeToggle() {
         style={{
           backgroundColor: dark ? '#10142a' : '#f9f9f9',
           border: dark ? '1px solid rgba(71, 85, 105, 0.5)' : '1px solid rgba(203, 213, 225, 0.8)',
-          boxShadow: dark 
-            ? '0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4)' 
-            : '0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
           focusRingColor: dark ? 'rgba(148, 163, 184, 0.5)' : 'rgba(100, 116, 139, 0.5)'
         }}
       >

@@ -29,7 +29,7 @@ function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden p-8 rounded-md glass-surface flex flex-col min-h-[280px] transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px]"
+              className="group relative overflow-hidden p-8 rounded-lg glass-surface flex flex-col min-h-[280px] transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px]"
             >
               {/* Project Image */}
               {/* <div className="mb-6 overflow-hidden rounded-xl">
@@ -54,7 +54,7 @@ function Projects() {
                   </span>
                 </div>
                 
-                <p className="font-sans text-[17px] font-normal text-slate-700 tracking-wide leading-snug" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'}}>
+                <p className="font-sans text-[17px] font-normal text-slate-700 tracking-wide leading-snug" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:'-0.03em' }}>
                   {project.description}
                 </p>
 
@@ -133,8 +133,8 @@ function Projects() {
         {/* Call to Action */}
         <div className="mt-24 text-center">
           <div className="p-12 max-w-4xl mx-auto rounded-md glass-surface">
-            <h3 className="text-3xl font-light text-slate-900 mb-6">More Projects</h3>
-            <p className="text-lg font-normal text-slate-700 mb-8">
+            <h3 className="text-3xl font-light text-slate-900 mb-6" style={{letterSpacing: '-0.05em'}}>More Projects</h3>
+            <p className="text-lg font-normal text-slate-700 mb-8" style={{letterSpacing: '-0.03em'}}>
               Explore my complete portfolio on GitHub to see all my work and contributions.
             </p>
               <a 

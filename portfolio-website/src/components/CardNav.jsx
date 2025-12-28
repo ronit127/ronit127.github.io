@@ -133,7 +133,7 @@ const CardNav = ({
     >
       <nav
         ref={navRef}
-        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-md overflow-hidden will-change-[height]`}
+        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-lg overflow-hidden will-change-[height]`}
         style={{
           boxShadow: isGlowing 
             ? '0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2)'

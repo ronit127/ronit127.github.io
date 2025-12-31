@@ -3,7 +3,6 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import CardNav from './components/CardNav';
-import LiquidEther from './components/LiquidEther';
 import Starry from './components/Starry';
 import BackToTop from './components/BackToTop';
 import DarkModeToggle from './components/DarkModeToggle';
@@ -68,27 +67,7 @@ const App = () => {
     <div className="page-bg">
       <DarkModeToggle />
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {isDark ? (
-          <Starry />
-        ) : (
-          <LiquidEther
-            colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
-            mouseForce={2}
-            cursorSize={80}
-            isViscous={true}
-            viscous={30}
-            iterationsViscous={32}
-            iterationsPoisson={32}
-            resolution={0.3}
-            isBounce={false}
-            autoDemo={true}
-            autoSpeed={0.4}
-            autoIntensity={1.2}
-            takeoverDuration={0.25}
-            autoResumeDelay={3000}
-            autoRampDuration={0.6}
-          />
-        )}
+        {isDark ? ( <Starry />) : ( null)}
         <CardNav
           items={items}
           baseColor="#fff"
@@ -106,7 +85,6 @@ const App = () => {
         <BackToTop />
         <Construction />
         <Footer />
-       
       </div>
     </div>
   );

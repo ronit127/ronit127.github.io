@@ -36,15 +36,15 @@ function Experience() {
 
   return (
     <section id="experience" className="py-24 px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <h2 className="section-title">Experience</h2>
         
-        <div className="max-w-4xl mx-auto space-y-8 mt-12">
+        <div className="space-y-4 mt-12">
           {experiences.map((exp, index) => (
             <div key={index} className="p-8 md:p-10 rounded-lg glass-surface">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
-                  <h3 className="card-title2">
+                  <h3 className="card-title leading-tight">
                     {exp.title}
                   </h3>
                   <p className="text-lg text-slate-700 mb-1">
@@ -52,7 +52,7 @@ function Experience() {
                   </p>
                 </div>
                 <div className="mt-3 md:mt-0">
-                  <p className="text-slate-700 md:text-right">
+                  <p className="text-lg text-slate-700 md:text-right">
                     {exp.period}
                   </p>
                 </div>

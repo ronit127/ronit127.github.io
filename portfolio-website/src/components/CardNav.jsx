@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
-import { FiExternalLink } from 'react-icons/fi';
+import { FiExternalLink, FiMapPin } from 'react-icons/fi';
 
 const CardNav = ({
   items,
@@ -9,8 +9,6 @@ const CardNav = ({
   ease = 'power3.out',
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isGlowing, setIsGlowing] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
   const navRef = useRef(null);
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
@@ -34,7 +32,6 @@ const CardNav = ({
 
     contentEl.offsetHeight;
 
-    const topBar = 120;
     const padding = 29;
     const contentHeight = contentEl.scrollHeight;
 
@@ -43,14 +40,14 @@ const CardNav = ({
     contentEl.style.position = wasPosition;
     contentEl.style.height = wasHeight;
 
-    return topBar + contentHeight + padding;
+    return contentHeight + padding;
   };
 
   const createTimeline = () => {
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 120, overflow: 'hidden' });
+    gsap.set(navEl, { height: 0, overflow: 'hidden' });
     gsap.set(cardsRef.current, { y: 60, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
@@ -70,10 +67,7 @@ const CardNav = ({
     const tl = createTimeline();
     tlRef.current = tl;
     
-    // Auto-open on mount with animation and glow effect
-    setIsGlowing(true);
     const timer = setTimeout(() => {
-      setIsGlowing(false);
       setIsExpanded(true);
       tl?.play(0);
     }, 600);
@@ -116,86 +110,38 @@ const CardNav = ({
     if (el) cardsRef.current[i] = el;
   };
 
-  let greeting = "Hello! I'm";
-  let name = "Ronit Rout";
-  let desc = "I enjoy creating thoughtful software for the web.";
-
+  let desc = "I am a full-stack developer studying computer science and education at the University of Illinois (UIUC). I create thoughtfully designed web experiences with TypeScript, React, and Python, usually on tools that make learning and building easier. Otherwise, I enjoy exploring new genres of music while going on long walks.";
   return (
     <div
-      className={`card-nav-container w-[95%] max-w-[1200px] z-[99] mx-auto ${className}`}
-      style={{ 
-        transform: 'scale(1)',
-        transformOrigin: 'center top',
-        transitionProperty: 'transform',
-        transitionDuration: '300ms',
-        transitionTimingFunction: 'ease-out'
-      }}
+      className={`w-[95%] max-w-[1200px] z-[99] mx-auto relative ${className}`}
     >
-      <nav
-        ref={navRef}
-        className={`card-nav glass-surface ${isExpanded ? 'open' : ''} ${isGlowing ? 'glowing' : ''} block h-[120px] p-7 md:p-10 relative rounded-lg overflow-hidden will-change-[height]`}
-        style={{
-          boxShadow: isGlowing 
-            ? '0 0 40px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2)'
-            : undefined,
-          transition: 'box-shadow 0.4s ease-out',
-          animation: isGlowing 
-            ? 'shake 0.15s infinite' 
-            : (!isExpanded && !isHovering) 
-              ? 'subtleShake 2.5s linear infinite'
-              : 'none',
-          animationDelay: isGlowing ? '0s' : undefined
-        }}
-      >
-        <style>{`
-          @keyframes shake {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-1px, -1px) rotate(-0.25deg); }
-            50% { transform: translate(1px, 1px) rotate(0.25deg); }
-            75% { transform: translate(-1px, 1px) rotate(-0.25deg); }
-          }
-         @keyframes subtleShake {
-            0%   { transform: translateX(0) rotate(0); }
-
-            /* soft irregular micro-movements */
-            3%   { transform: translateX(-0.6px) rotate(-0.12deg); }
-            5%   { transform: translateX(0.9px) rotate(0.18deg); }
-            7%   { transform: translateX(-1.1px) rotate(-0.22deg); }
-            9%   { transform: translateX(0.7px) rotate(0.14deg); }
-            11%  { transform: translateX(0); }
-
-            /* pause, but not dead */
-            18%  { transform: translateX(0.2px); }
-
-            /* second cluster, slightly different feel */
-            21%  { transform: translateX(-0.8px) rotate(-0.16deg); }
-            23%  { transform: translateX(1.2px) rotate(0.24deg); }
-            26%  { transform: translateX(-0.9px) rotate(-0.18deg); }
-            28%  { transform: translateX(0.6px) rotate(0.12deg); }
-            31%  { transform: translateX(0); }
-
-            /* longer rest */
-            45%  { transform: translateX(0); }
-
-            /* faint residual movement */
-            48%  { transform: translateX(-0.4px) rotate(-0.08deg); }
-            52%  { transform: translateX(0.5px) rotate(0.1deg); }
-            56%  { transform: translateX(-0.3px); }
-            60%  { transform: translateX(0); }
-
-            100% { transform: translateX(0); }
-          }
-
-        `}</style>
-        <div className="card-nav-top absolute inset-x-0 top-0 h-[120px] flex items-center justify-center px-4 md:px-6 z-[2]">
-          <div className="logo-container flex flex-col items-center justify-center text-center px-2 md:px-4">
-            <span className="logo text-[24px] sm:text-[32px] md:text-[50px] font-display leading-tight whitespace-normal md:whitespace-nowrap">{greeting} <span className='font-bold'>{name}</span></span>
-            {desc && <span className="logo-desc text-[18px] sm:text-[20px] md:text-[23px] font-display mt-1 max-w-full break-words">{desc}</span>}
+      <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-4 sm:pt-6 md:pt-0">
+        <div className="flex justify-between items-baseline gap-4">
+          <h1 className="text-[32px] sm:text-[40px] md:text-[52px] font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text)', letterSpacing: '-0.05em', lineHeight: '1.2em' }}>
+            Hi there, I'm <span className='font-bold'>Ronit</span>!
+          </h1>
+          <div className="flex items-center gap-2">
+            <FiMapPin className="text-[16px] sm:text-[18px] md:text-[20px]" />
+            <p className="text-[16px] sm:text-[18px] md:text-[20px] font-display" style={{ color: 'var(--text)', letterSpacing: '-0.05em' }}>
+              Illinois , USA
+            </p>
           </div>
         </div>
+        <p className="text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed whitespace-pre-wrap" style={{ color: 'var(--text)' , letterSpacing: '-0.04em', lineHeight: '1.9em' }}>
+          {desc}
+        </p>
+      </div>
 
+      <div className="relative">
+        <div className="absolute inset-0 invisible pointer-events-none" style={{ minHeight: calculateHeight() }} />
+
+        <nav
+          ref={navRef}
+          className={`${isExpanded ? 'open' : ''} block h-0 p-7 md:p-10 relative rounded-lg overflow-hidden will-change-[height]`}
+        >
+    
         <div
-          className={`card-nav-content absolute left-0 right-0 top-[120px] bottom-0 p-4 md:p-6 flex flex-col font-display items-stretch gap-3 md:gap-[19px] justify-start z-[1] ${
+          className={`card-nav-content p-4 md:p-6 absolute left-0 right-0 top-[0px] bottom-0 flex flex-col font-display items-stretch gap-3 md:gap-[19px] justify-start z-[1] ${
             isExpanded ? 'visible pointer-events-auto' : 'invisible pointer-events-none'
           } md:flex-row md:items-end`}
           aria-hidden={!isExpanded}
@@ -207,11 +153,12 @@ const CardNav = ({
               ref={setCardRef(idx)}
               style={{ 
                 background: `
-                  linear-gradient(135deg, ${item.bgColor}e6 0%, ${item.bgColor}b3 50%, ${item.bgColor}cc 100%),
+                  linear-gradient(155deg, ${item.bgColor}e6 0%, ${item.bgColor}b3 50%, ${item.bgColor}cc 100%),
                   radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%)
                 `,
                 color: item.textColor,
-                boxShadow: `0 10px 8px ${item.bgColor}99, inset 0 0 0 4.2px rgba(255, 255, 255, 0.25)`
+                border: `1.5px solid ${item.borderColor}80`,
+                boxShadow: `0 5px 4px ${item.bgColor}99, inset 0 0 0 3.2px rgba(255, 255, 255, 0.25)`
               }}
             >
               <div className="nav-card-label font-normal tracking-[-0.6px] text-[24px] sm:text-[29px] md:text-[34px]">
@@ -239,6 +186,7 @@ const CardNav = ({
           ))}
         </div>
       </nav>
+      </div>
     </div>
   );
 };

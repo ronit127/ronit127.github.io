@@ -60,7 +60,7 @@
 
   .glass-surface {
     background-color: var(--surface);
-    border: 0px solid var(--surface-border);
+    border: 1px solid var(--surface-border);
     /* box-shadow: var(--surface-shadow); */
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -74,26 +74,10 @@
   }
 
   .card-title {
-    @apply text-2xl md:text-3xl font-medium mb-3;
+    @apply text-xl md:text-2xl font-medium mb-3;
     font-family: 'Bitter', Georgia, serif;
     color: var(--text-strong);
-  }
-
-  .card-title2 {
-    @apply text-xl md:text-xl font-semibold mb-1;
-    font-family: 'Bitter', Georgia, serif;
-    color: var(--text-strong);
-  }
-
-  /* Nav text uses global tokens */
-  .logo {
-    color: var(--text-strong);
-  }
-  .logo-desc {
-    color: var(--text-muted);
-  }
-  .hamburger-menu {
-    color: var(--text-strong);
+    letter-spacing: -0.03em;
   }
 }
 
@@ -122,22 +106,4 @@
   }
 }
 
-@layer utilities {
-  .animate-spin-once {
-    animation: spinOnce 0.7s cubic-bezier(0.22,1,0.36,1) 1;
-  }
-  .group:hover .group-hover\:animate-spin-once {
-    animation: spinOnce 0.7s cubic-bezier(0.22,1,0.36,1) 1;
-  }
-  .group:not(:hover) .group-hover\:animate-spin-once {
-    animation: spinOnceReverse 0.7s cubic-bezier(0.22,1,0.36,1) 1;
-  }
-  @keyframes spinOnce {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  @keyframes spinOnceReverse {
-    0% { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
-  }
-}
+

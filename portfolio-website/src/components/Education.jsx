@@ -38,23 +38,23 @@ function Education() {
   };
   return (
     <section id="education" className="py-1 px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <h2 className="section-title">Education</h2>
         
-        <div className="max-w-4xl mx-auto">
+        <div>
           <div className="p-8 md:p-10 rounded-lg glass-surface">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start md:gap-8 mb-6">
               <div className="flex flex-col gap-1">
                 <h3 className="card-title leading-tight">
                   University of Illinois Urbana-Champaign
                 </h3>
-                <p className="text-lg font-display text-slate-700 leading-snug">
+                <p className="text-base md:text-lg font-display text-slate-700 leading-snug">
                   B.S. Computer Science and Learning Sciences
                 </p>
               </div>
 
               <div className="flex flex-col gap-1 mt-4 md:mt-0 text-left md:text-right">
-                <p className="text-base text-slate-700 leading-snug">Aug 2023 - May 2027</p>
+                <p className="text-base md:text-lg text-slate-700 leading-snug">Aug 2023 - May 2027</p>
               </div>
             </div>
 
@@ -70,18 +70,14 @@ function Education() {
                     'ACM Game Builders Dev',
                     'PointVR VR Team'
                   ].map((item) => {
-                    const colors = ['#2D1B3E', '#3A2456', '#4A3362'];
-                    const bgColor = colors[1];
+                    const bgColor = '#3A2456';
                     return (
                       <span
                         key={item}
                         className="px-3 py-1 text-white rounded-sm text-sm font-normal whitespace-nowrap flex-shrink-0"
                         style={{
                           background: `${bgColor}b3`,
-                          backdropFilter: 'blur(16px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                          border: `1.5px solid ${bgColor}50`,
-                          boxShadow: `0px 1px 3px ${bgColor}66`
+                          border: `1px solid ${bgColor}50`,
                         }}
                       >
                         {item}
@@ -125,10 +121,7 @@ function Education() {
                         className="px-3 py-1 text-white rounded-sm text-sm font-normal whitespace-nowrap snap-start flex-shrink-0"
                         style={{
                           background: `${bgColor}b3`,
-                          backdropFilter: 'blur(16px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                          border: `1.5px solid ${bgColor}50`,
-                          boxShadow: `0px 1px 3px ${bgColor}66`
+                          border: `1px solid ${bgColor}50`,
                         }}
                       >
                         {course}

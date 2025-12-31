@@ -22,30 +22,21 @@ function Projects() {
 
   return (
     <section id="projects" className="py-24 px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <h2 className="section-title">Portfolio</h2>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-4">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden p-8 rounded-lg glass-surface flex flex-col min-h-[280px] transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-[6px]"
+              className="group relative overflow-hidden p-8 rounded-lg glass-surface flex flex-col min-h-[280px] transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
             >
-              {/* Project Image */}
-              {/* <div className="mb-6 overflow-hidden rounded-xl">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-56 object-cover"
-                />
-              </div> */}
-              
-              {/* Project Content */}
+        
               <div className="flex flex-col h-full">
                 <div className="flex-[0.6]" aria-hidden="true" />
 
                 <div className="flex items-center justify-between mb-3 transition-all duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-hover:scale-[1.02]" style={{ transformOrigin: 'left center' }}>
-                  <h3 className="card-title2">
+                  <h3 className="card-title">
                     {project.title}
                   </h3>
                   <span className="text-slate-400 relative">
@@ -58,9 +49,7 @@ function Projects() {
                   {project.description}
                 </p>
 
-                {/* Revealed on hover */}
                 <div className="transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-8 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-[280px] group-hover:mt-6 pointer-events-none group-hover:pointer-events-auto space-y-5">
-                  {/* Tech Stack */}
                   <div className="flex flex-wrap gap-3">
                     {project.technologies
                       .filter(tech => techIcons[tech])
@@ -84,8 +73,7 @@ function Projects() {
                         );
                       })}
                   </div>
-                  
-                  {/* Project Links */}
+               
                   <div className="flex gap-3">
                     {project.liveLink && (
                       <a 
@@ -96,10 +84,7 @@ function Projects() {
                         className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                         style={{
                           background: 'var(--accent-purple, #3A2456b3)',
-                          backdropFilter: 'blur(16px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                          border: '1.5px solid var(--accent-purple-border, #3A245650)',
-                          boxShadow: '0px 1px 3px var(--accent-purple-shadow, #3A245666)'
+                          border: '1.5px solid var(--accent-purple-border, #3A245650)'
                         }}
                       >
                         View Live
@@ -114,13 +99,10 @@ function Projects() {
                          className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                         style={{
                           background: 'var(--accent-purple, #3A2456b3)',
-                          backdropFilter: 'blur(16px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                          border: '1.5px solid var(--accent-purple-border, #3A245650)',
-                          boxShadow: '0px 1px 3px var(--accent-purple-shadow, #3A245666)'
+                          border: '1.5px solid var(--accent-purple-border, #3A245650)'
                         }}
                       >
-                        Source
+                        View Source
                       </a>
                     )}
                   </div>
@@ -129,10 +111,9 @@ function Projects() {
             </div>
           ))}
         </div>
-        
-        {/* Call to Action */}
+   
         <div className="mt-24 text-center">
-          <div className="p-12 max-w-4xl mx-auto rounded-md glass-surface">
+          <div className="p-12 rounded-md glass-surface">
             <h3 className="text-3xl font-light text-slate-900 mb-6" style={{letterSpacing: '-0.05em'}}>More Projects</h3>
             <p className="text-lg font-normal text-slate-700 mb-8" style={{letterSpacing: '-0.03em'}}>
               Explore my complete portfolio on GitHub to see all my work and contributions.
@@ -145,10 +126,7 @@ function Projects() {
                 className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
               style={{
                 background: 'var(--accent-purple, #3A2456b3)',
-                backdropFilter: 'blur(16px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-                border: '1.5px solid var(--accent-purple-border, #3A245650)',
-                boxShadow: '0px 1px 3px var(--accent-purple-shadow, #3A245666)'
+                border: '1.5px solid var(--accent-purple-border, #3A245650)'
               }}
             >
               View on GitHub

@@ -37,7 +37,7 @@ function Education() {
     }
   };
   return (
-    <section id="education" className="py-1 px-8">
+    <section id="education" className="py-24 px-8">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="section-title">Education</h2>
         

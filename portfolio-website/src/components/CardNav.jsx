@@ -115,30 +115,27 @@ const CardNav = ({
     <div
       className={`w-[95%] max-w-[1200px] z-[99] mx-auto relative ${className}`}
     >
-      <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-4 sm:pt-6 md:pt-0">
+      <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-4 sm:pt-6 md:pt-0 px-4 sm:px-0">
         <div className="flex justify-between items-baseline gap-4">
           <h1 className="text-[32px] sm:text-[40px] md:text-[52px] font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text)', letterSpacing: '-0.05em', lineHeight: '1.2em' }}>
             Hi there, I'm <span className='font-bold'>Ronit</span>!
           </h1>
-          <div className="flex items-center gap-2">
+          <div className="hidden sm:flex items-center gap-2">
             <FiMapPin className="text-[16px] sm:text-[18px] md:text-[20px]" />
             <p className="text-[16px] sm:text-[18px] md:text-[20px] font-display" style={{ color: 'var(--text)', letterSpacing: '-0.05em' }}>
               Illinois , USA
             </p>
           </div>
         </div>
-        <p className="text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed whitespace-pre-wrap" style={{ color: 'var(--text)' , letterSpacing: '-0.04em', lineHeight: '1.9em' }}>
+        <p className="text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed whitespace-pre-wrap mt-2" style={{ color: 'var(--text)' , letterSpacing: '-0.04em', lineHeight: '1.9em' }}>
           {desc}
         </p>
       </div>
 
-      <div className="relative">
-        <div className="absolute inset-0 invisible pointer-events-none" style={{ minHeight: calculateHeight() }} />
-
-        <nav
-          ref={navRef}
-          className={`${isExpanded ? 'open' : ''} block h-0 p-7 md:p-10 relative rounded-lg overflow-hidden will-change-[height]`}
-        >
+      <nav
+        ref={navRef}
+        className={`${isExpanded ? 'open' : ''} block h-0 p-7 md:p-10 relative rounded-lg overflow-hidden will-change-[height]`}
+      >
     
         <div
           className={`card-nav-content p-4 md:p-6 absolute left-0 right-0 top-[0px] bottom-0 flex flex-col font-display items-stretch gap-3 md:gap-[19px] justify-start z-[1] ${
@@ -186,7 +183,6 @@ const CardNav = ({
           ))}
         </div>
       </nav>
-      </div>
     </div>
   );
 };

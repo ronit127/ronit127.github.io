@@ -61,8 +61,7 @@ const Construction = () => {
               key={idx}
               className="mx-8 text-xl sm:text-2xl md:text-3xl font-thin uppercase"
               style={{
-                color: textColor,
-                textShadow: `0 2px 4px ${isDark ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.1)'}`
+                color: textColor
               }}
             >
                UNDER CONSTRUCTION • NEW FEATURES ON THE WAY 
@@ -70,8 +69,6 @@ const Construction = () => {
           ))}
         </div>
       </div>
-
-    
 
       <style>{`
         @keyframes scroll {

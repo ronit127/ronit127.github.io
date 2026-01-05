@@ -110,7 +110,21 @@ const CardNav = ({
     if (el) cardsRef.current[i] = el;
   };
 
-  let desc = "I am a full-stack developer studying computer science and education at the University of Illinois (UIUC). I create thoughtfully designed web experiences with TypeScript, React, and Python, usually on tools that make learning and building easier. Otherwise, I enjoy exploring new genres of music while going on long walks.";
+  let desc = (
+    <>
+      I am a full-stack developer studying CS and education at the{' '}
+      <a
+        href="https://siebelschool.illinois.edu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: 'none' }}
+      >
+        <u>University of Illinois</u>
+      </a>
+      {' '}(UIUC). I create thoughtfully designed web experiences with TypeScript, React, and Python, usually on tools that make learning and building easier. Otherwise, I enjoy exploring new genres of music while going on long walks.
+    </>
+  );
+
   return (
     <div
       className={`w-[95%] max-w-[1200px] z-[99] mx-auto relative ${className}`}

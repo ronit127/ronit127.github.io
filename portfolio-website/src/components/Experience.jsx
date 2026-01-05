@@ -1,6 +1,21 @@
 import { FiArrowRight } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { renderTextWithTechChips } from '../lib/renderTextWithTechChips';
 
 function Experience() {
+  const [isDark, setIsDark] = useState(() => 
+    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
+  const renderHighlightWithTech = (text) => renderTextWithTechChips(text, isDark, 'text-md');
   const experiences = [
     {
       title: 'Software Engineer Intern',
@@ -8,8 +23,8 @@ function Experience() {
       location: 'Remote',
       period: 'Aug 2025 – Present',
       highlights: [
-        'Built and refactored React components with TypeScript and Tailwind CSS',
-        'Optimized CI/CD pipeline, cutting test execution times by 40%'
+        'Worked on building accessible and responsive React components with TypeScript and Tailwind CSS',
+        'Streamlined Python tests with Playwright and Pytest, cutting CI run times by 40%',
       ]
     },
     {
@@ -19,7 +34,7 @@ function Experience() {
       period: 'Jan 2025 – Present',
       highlights: [
         'Led 17-member team building a Python editor with real-time visualizations',
-        'Built Flask REST API with D3.js frontend for interactive data structure visualization'
+        'Built a Flask REST API with a JavaScript and D3.js frontend for interactive data structure visualization.'
       ]
     },
     {
@@ -28,7 +43,7 @@ function Experience() {
       location: 'Remote',
       period: 'May 2024 – Aug 2024',
       highlights: [
-        'Created personalized math learning tool with 1K+ question network graph',
+        'Created a Python personalized math learning tool with 1K+ question network graph',
         'Developed A* pathfinding algorithms improving performance by 18%'
       ]
     }
@@ -63,7 +78,7 @@ function Experience() {
                   <li key={idx} className="flex items-start">
                     <FiArrowRight className="mr-3 flex-shrink-0 mt-0.5" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
                     <span className="font-sans text-lg text-slate-700 tracking-wide leading-snug" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:' -0.04em'}}>
-                      {highlight}
+                      {renderHighlightWithTech(highlight)}
                     </span>
                   </li>
                 ))}

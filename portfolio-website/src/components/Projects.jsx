@@ -1,11 +1,25 @@
 import projects from '../assets/data/projects';
+import { useState, useEffect } from 'react';
 import { 
   SiPython, SiJavascript, SiReact, SiFlask, SiHtml5, SiCss3, 
   SiNextdotjs, SiC, SiRaspberrypi, SiOpenai, SiTypescript
 } from 'react-icons/si';
 import { FaFolder, FaFolderOpen } from 'react-icons/fa';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 function Projects() {
+  const [isDark, setIsDark] = useState(() => 
+    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
   const techIcons = {
     'Python': SiPython,
     'JavaScript': SiJavascript,
@@ -50,7 +64,7 @@ function Projects() {
                 </p>
 
                 <div className="transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-8 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-[280px] group-hover:mt-6 pointer-events-none group-hover:pointer-events-auto space-y-5">
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies
                       .filter(tech => techIcons[tech])
                       .map((tech) => {
@@ -58,17 +72,19 @@ function Projects() {
                         return (
                           <div
                             key={tech}
-                            className="flex items-center justify-center transition-all duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 group-hover:opacity-100"
+                            className="flex items-center gap-1.5 px-3 py-1 text-slate-700 rounded-sm text-sm font-normal whitespace-nowrap"
                             title={tech}
-                            style={{ transitionDelay: '120ms' }}
+                            style={{
+                              color: isDark ? 'rgb(248, 250, 252)' : '#3A2456b3',
+                              background: 'var(--surface)',
+                              border: isDark ? '1.5px solid #cbd5e1' : `1.5px solid #3A2456b3`
+                            }}
                           >
                             <Icon 
-                              size={32} 
-                              style={{ 
-                                color: 'var(--accent-purple, #3A2456b3)',
-                                filter: 'drop-shadow(0 0px 1px rgba(58, 36, 86, 0.3))'
-                              }} 
+                              size={16} 
+                              style={{ flexShrink: 0 }}
                             />
+                            <span>{tech}</span>
                           </div>
                         );
                       })}
@@ -81,12 +97,13 @@ function Projects() {
                         target="_blank" 
                         rel="noopener noreferrer" 
                         aria-label={`Open live project: ${project.title}`}
-                        className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
+                        className="inline-flex items-center gap-1.5 px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                         style={{
-                          background: 'var(--accent-purple, #3A2456b3)',
+                          background: '#3A2456b3',
                           border: '1.5px solid var(--accent-purple-border, #3A245650)'
                         }}
                       >
+                        <FiArrowUpRight size={16} />
                         View Live
                       </a>
                     )}
@@ -96,12 +113,13 @@ function Projects() {
                         target="_blank" 
                         rel="noopener noreferrer" 
                         aria-label={`Open source code for ${project.title}`}
-                         className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
+                         className="inline-flex items-center gap-2 px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
                         style={{
-                          background: 'var(--accent-purple, #3A2456b3)',
+                          background: '#3A2456b3',
                           border: '1.5px solid var(--accent-purple-border, #3A245650)'
                         }}
                       >
+                        <FiArrowUpRight size={16} />
                         View Source
                       </a>
                     )}
@@ -123,12 +141,13 @@ function Projects() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="View all projects on GitHub (opens in new tab)"
-                className="inline-block px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
+                className="inline-flex items-center px-5 py-2 gap-1.5 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:brightness-[1.4]"
               style={{
-                background: 'var(--accent-purple, #3A2456b3)',
+                background: '#3A2456b3',
                 border: '1.5px solid var(--accent-purple-border, #3A245650)'
               }}
             >
+              <FiArrowUpRight size={16} />
               View on GitHub
             </a>
           </div>

@@ -12,6 +12,7 @@ function DarkModeToggle() {
     }
   });
   const [hasSpace, setHasSpace] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const checkSpace = () => {
@@ -51,26 +52,27 @@ function DarkModeToggle() {
         aria-checked={dark}
         aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
         onClick={() => setDark(d => !d)}
-        className="group relative flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-500 ease-out hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        className="group relative flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-500 ease-out active:scale-95"
         style={{
           backgroundColor: dark ? '#10142a' : '#f9f9f9',
-          border: dark ? '1px solid rgba(71, 85, 105, 0.5)' : '1px solid rgba(203, 213, 225, 0.8)',
-          focusRingColor: dark ? 'rgba(148, 163, 184, 0.5)' : 'rgba(100, 116, 139, 0.5)'
+          border: dark 
+            ? `1px solid ${isHovering ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.3)'}` 
+            : `1px solid ${isHovering ? 'rgba(59, 130, 246, 0.7)' : 'rgba(148, 163, 184, 0.4)'}`
         }}
       >
-        {/* Sun Icon */}
+
         <div 
           className="relative transition-all duration-500 ease-out"
           style={{
             opacity: dark ? 0.3 : 1,
-            transform: dark ? 'rotate(180deg) scale(0.8)' : 'rotate(0deg) scale(1)',
             color: dark ? '#64748b' : '#f59e0b'
           }}
         >
           <FiSun size={18} strokeWidth={2.5} aria-hidden="true" />
         </div>
 
-        {/* Toggle Track */}
         <div 
           className="relative h-5 rounded-full transition-all duration-500 ease-out"
           style={{
@@ -78,7 +80,7 @@ function DarkModeToggle() {
             backgroundColor: dark ? 'rgba(71, 85, 105, 0.6)' : 'rgba(226, 232, 240, 0.8)'
           }}
         >
-          {/* Toggle Thumb */}
+         
           <span
             className="absolute top-0.5 rounded-full transition-all duration-500 ease-out"
             style={{
@@ -93,16 +95,14 @@ function DarkModeToggle() {
           />
         </div>
 
-        {/* Moon Icon */}
         <div 
           className="relative transition-all duration-500 ease-out"
           style={{
             opacity: dark ? 1 : 0.3,
-            transform: dark ? 'rotate(0deg) scale(1)' : 'rotate(-180deg) scale(0.8)',
             color: dark ? '#ffffff' : '#64748b'
           }}
         >
-          <FiMoon size={18} strokeWidth={2.5} aria-hidden="true" />
+          <FiMoon size={18} strokeWidth={2} aria-hidden="true" />
         </div>
       </button>
     </div>

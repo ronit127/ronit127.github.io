@@ -7,6 +7,7 @@ function BackToTop() {
     typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
   );
   const [hasSpace, setHasSpace] = useState(true);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const check = () => {
@@ -58,14 +59,19 @@ function BackToTop() {
   return (
     <button
       onClick={scrollTop}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
       aria-label="Back to top"
-      className="fixed bottom-8 right-8 z-50 flex items-center justify-center rounded-full transition-colors duration-300 ease-out hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2"
+      className="fixed bottom-8 right-8 z-50 flex items-center justify-center rounded-full transition-colors duration-300 ease-out"
       style={{
         width: '44px',
         height: '44px',
         backgroundColor: isDark ? '#10142a' : '#f9f9f9',
-        border: isDark ? '1px solid rgba(71, 85, 105, 0.5)' : '1px solid rgba(203, 213, 225, 0.8)',
+        border: isDark 
+            ? `1px solid ${isHovering ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.3)'}` 
+            : `1px solid ${isHovering ? 'rgba(59, 130, 246, 0.7)' : 'rgba(148, 163, 184, 0.4)'}`,
         color: isDark ? '#f8fafc' : '#1e293b'
+        
       }}
     >
       <FiArrowUp 

@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -8,6 +9,7 @@ import BackToTop from './components/BackToTop';
 import DarkModeToggle from './components/DarkModeToggle';
 import Footer from './components/Footer';
 import Construction from './components/Construction';
+import Me from './components/Me';
 
 const App = () => {
   const items = useMemo(() => [
@@ -63,6 +65,15 @@ const App = () => {
     return () => { obs.disconnect(); window.removeEventListener('storage', update); };
   }, []);
 
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage items={items} isDark={isDark} />} />
+      <Route path="/me" element={<Me />} />
+    </Routes>
+  );
+};
+
+const HomePage = ({ items, isDark }) => {
   return (
     <div className="page-bg">
       <DarkModeToggle />

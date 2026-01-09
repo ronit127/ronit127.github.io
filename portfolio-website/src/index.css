@@ -553,7 +553,6 @@ video {
   --app-bg: rgb(240, 240, 240);
   --surface: rgba(249, 249, 249);
   --surface-border: rgba(62, 62, 62, 0.18);
-  --surface-shadow: 0px 1px 2px rgba(0, 0, 0, 0.28);
   --text-strong: rgb(15, 23, 42);
   --text: rgb(51, 65, 85);
   --text-muted: rgb(71, 85, 105);
@@ -581,13 +580,11 @@ body.dark,
   --app-bg: rgb(11, 16, 32);
   --surface: rgba(20, 22, 40, 0.72);
   --surface-border: rgba(255, 255, 255, 0.10);
-  --surface-shadow: 0px 4px 18px rgba(0, 0, 0, 0.45);
   --text-strong: rgb(248, 250, 252);
   --text: rgb(226, 232, 240);
   --text-muted: rgb(203, 213, 225);
   --accent-purple: #573781;
   --accent-purple-border: #3A245650;
-  --accent-purple-shadow: #3A245666;
 }
 
 .container {
@@ -633,9 +630,9 @@ body.dark,
 .glass-surface {
   background-color: var(--surface);
   border: 1px solid var(--surface-border);
-  /* box-shadow: var(--surface-shadow); */
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: #57378111 0px 2px 2px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .section-title {
@@ -1223,8 +1220,8 @@ body.dark,
   font-size: 26px;
 }
 
-.text-\[32px\] {
-  font-size: 32px;
+.text-\[28px\] {
+  font-size: 28px;
 }
 
 .text-base {
@@ -1352,6 +1349,14 @@ body.dark,
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1414,29 +1419,6 @@ body.dark,
   will-change: height;
 }
 
-body.dark .text-slate-900,
-  .dark .text-slate-900,
-  body.dark .text-slate-800,
-  .dark .text-slate-800 {
-  color: var(--text-strong) !important;
-}
-
-body.dark .text-slate-700,
-  .dark .text-slate-700,
-  body.dark .text-slate-600,
-  .dark .text-slate-600,
-  body.dark .text-slate-500,
-  .dark .text-slate-500 {
-  color: var(--text-muted) !important;
-}
-
-body.dark .border-slate-200,
-  .dark .border-slate-200,
-  body.dark .border-slate-300,
-  .dark .border-slate-300 {
-  border-color: var(--surface-border) !important;
-}
-
 .hover\:translate-y-\[-5px\]:hover {
   --tw-translate-y: -5px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1460,11 +1442,6 @@ body.dark .border-slate-200,
 .hover\:brightness-\[1\.2\]:hover {
   --tw-brightness: brightness(1.2);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-body.dark .hover\:text-slate-900:hover,
-  .dark .hover\:text-slate-900:hover {
-  color: var(--text-strong) !important;
 }
 
 .active\:translate-y-\[1px\]:active {
@@ -1571,8 +1548,8 @@ body.dark .hover\:text-slate-900:hover,
     font-size: 29px;
   }
 
-  .sm\:text-\[40px\] {
-    font-size: 40px;
+  .sm\:text-\[36px\] {
+    font-size: 36px;
   }
 }
 
@@ -1670,8 +1647,8 @@ body.dark .hover\:text-slate-900:hover,
     font-size: 34px;
   }
 
-  .md\:text-\[52px\] {
-    font-size: 52px;
+  .md\:text-\[48px\] {
+    font-size: 48px;
   }
 
   .md\:text-lg {
@@ -1679,5 +1656,6 @@ body.dark .hover\:text-slate-900:hover,
     line-height: 1.75rem;
   }
 }
+
 
 

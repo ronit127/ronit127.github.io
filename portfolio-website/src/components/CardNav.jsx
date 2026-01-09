@@ -112,16 +112,56 @@ const CardNav = ({
 
   let desc = (
     <>
-      I am a full-stack developer studying CS and education at the{' '}
+      I'm a full-stack developer studying CS and education at the{' '}
       <a
         href="https://siebelschool.illinois.edu/"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ textDecoration: 'none' }}
+        style={{ 
+          textDecoration: 'none',
+          transition: 'opacity 0.2s ease-in-out',
+          cursor: 'pointer'
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
       >
         <u>University of Illinois</u>
       </a>
-      {' '}(UIUC). I create thoughtfully designed web experiences with TypeScript, React, and Python, usually on tools that make learning and building easier. Otherwise, I enjoy exploring new genres of music while going on long walks.
+      {' '}(UIUC). I build web apps with TypeScript, React, and Python, usually on tools that make learning coding or math skills easier.
+        <br></br>
+        <br></br>
+      Currently helping build the beta of{' '}
+      <a
+        href="https://butterflo.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ 
+          textDecoration: 'none',
+          transition: 'opacity 0.2s ease-in-out',
+          cursor: 'pointer'
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+      >
+        <u>Butterflo</u>
+      </a>
+      's{' '}real estate platform this spring.
+      I'm also leading a talented team developing a visual Python debugger for{' '}
+      <a
+        href="https://projectcodeuiuc.org"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ 
+          textDecoration: 'none',
+          transition: 'opacity 0.2s ease-in-out',
+          cursor: 'pointer'
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+      >
+        <u>Project: Code</u>
+      </a>{' '}on campus.
+      {/* Contact me at <a href="mailto:ronitr.dev@gmail.com" style={{ textDecoration: 'none', color: 'var(--text)' }}>ronitr.dev@gmail.com</a> ! */}
     </>
   );
 
@@ -131,13 +171,13 @@ const CardNav = ({
     >
       <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-4 sm:pt-6 md:pt-0 px-4 sm:px-0">
         <div className="flex justify-between items-baseline gap-4">
-          <h1 className="text-[32px] sm:text-[40px] md:text-[52px] font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text)', letterSpacing: '-0.05em', lineHeight: '1.2em' }}>
-            Hi there, I'm <span className='font-bold'>Ronit</span>!
+          <h1 className="text-[28px] sm:text-[36px] md:text-[48px] font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text)', letterSpacing: '-0.05em', lineHeight: '1.2em' }}>
+            Hi there, I'm <span className='font-bold' style={{letterSpacing: '-0.03em'}}>Ronit Rout</span>!
           </h1>
           <div className="hidden sm:flex items-center gap-2">
             <FiMapPin className="text-[16px] sm:text-[18px] md:text-[20px]" />
             <p className="text-[16px] sm:text-[18px] md:text-[20px] font-display" style={{ color: 'var(--text)', letterSpacing: '-0.05em' }}>
-              Illinois , USA
+              Illinois, USA
             </p>
           </div>
         </div>

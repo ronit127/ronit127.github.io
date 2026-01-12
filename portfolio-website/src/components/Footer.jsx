@@ -39,7 +39,7 @@ const Footer = () => {
             opacity: 0.7
           }}
         >
-          © 2025 Ronit Rout. All rights reserved.
+          © 2026 Ronit Rout. All rights reserved.
         </p>
       </div>
     </footer>

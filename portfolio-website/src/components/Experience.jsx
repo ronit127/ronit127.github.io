@@ -62,12 +62,12 @@ function Experience() {
                   <h3 className="card-title leading-tight">
                     {exp.title}
                   </h3>
-                  <p className="text-lg text-slate-700 mb-1">
+                  <p className="text-lg mb-1" style={{color: 'var(--text-muted)'}}>
                     {exp.company}
                   </p>
                 </div>
                 <div className="mt-3 md:mt-0">
-                  <p className="text-lg text-slate-700 md:text-right">
+                  <p className="text-lg md:text-right" style={{color: 'var(--text-muted)'}}>
                     {exp.period}
                   </p>
                 </div>
@@ -77,7 +77,7 @@ function Experience() {
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-start">
                     <FiArrowRight className="mr-3 flex-shrink-0 mt-0.5" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
-                    <span className="font-sans text-lg text-slate-700 tracking-wide leading-snug" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:' -0.04em'}}>
+                    <span className="font-sans text-lg tracking-wide leading-relaxed" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing: '-0.04em', color: 'var(--text-muted)'}}>
                       {renderHighlightWithTech(highlight)}
                     </span>
                   </li>

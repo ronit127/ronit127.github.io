@@ -1,11 +1,10 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
-import { FiExternalLink, FiMapPin } from 'react-icons/fi';
+import { FiExternalLink, FiMapPin, FiGithub, FiLinkedin, FiMail, FiTwitter, FiInstagram } from 'react-icons/fi';
 
 const CardNav = ({
   items,
-  className = '',
   ease = 'power3.out',
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -112,7 +111,7 @@ const CardNav = ({
 
   let desc = (
     <>
-      I'm a full-stack developer studying CS and education at the{' '}
+      I’m a full-stack developer studying CS and education at the{' '}
       <a
         href="https://siebelschool.illinois.edu/"
         target="_blank"
@@ -127,7 +126,7 @@ const CardNav = ({
       >
         <u>University of Illinois</u>
       </a>
-      {' '}(UIUC). I build web apps with TypeScript, React, and Python, usually on tools that make learning coding or math skills easier.
+      {' '}(UIUC). I build web apps with TypeScript, React, and Python, usually tools that make learning coding or math skills easier.
         <br></br>
         <br></br>
       Currently helping build the beta of{' '}
@@ -146,7 +145,7 @@ const CardNav = ({
         <u>Butterflo</u>
       </a>
       's{' '}real estate platform this spring.
-      I'm also leading a talented team developing a visual Python debugger for{' '}
+      I’m also leading a talented team developing a visual Python debugger for{' '}
       <a
         href="https://projectcodeuiuc.org"
         target="_blank"
@@ -167,21 +166,21 @@ const CardNav = ({
 
   return (
     <div
-      className={`w-[95%] max-w-[1200px] z-[99] mx-auto relative ${className}`}
+      className="w-[95%] max-w-[1200px] z-[99] mx-auto relative mt-24 md:mt-2"
     >
-      <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-4 sm:pt-6 md:pt-0 px-4 sm:px-0">
+      <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-0 px-4 sm:px-0">
         <div className="flex justify-between items-baseline gap-4">
-          <h1 className="text-[28px] sm:text-[36px] md:text-[48px] font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text)', letterSpacing: '-0.05em', lineHeight: '1.2em' }}>
+          <h1 className="text-[28px] sm:text-[36px] md:text-[48px] font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text-muted)', letterSpacing: '-0.05em', lineHeight: '1.2em' }}>
             Hi there, I'm <span className='font-bold' style={{letterSpacing: '-0.03em'}}>Ronit Rout</span>!
           </h1>
           <div className="hidden sm:flex items-center gap-2">
             <FiMapPin className="text-[16px] sm:text-[18px] md:text-[20px]" />
-            <p className="text-[16px] sm:text-[18px] md:text-[20px] font-display" style={{ color: 'var(--text)', letterSpacing: '-0.05em' }}>
+            <p className="text-[16px] sm:text-[18px] md:text-[20px] font-display" style={{ color: 'var(--text-muted)', letterSpacing: '-0.05em' }}>
               Illinois, USA
             </p>
           </div>
         </div>
-        <p className="text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed whitespace-pre-wrap mt-2" style={{ color: 'var(--text)' , letterSpacing: '-0.04em', lineHeight: '1.9em' }}>
+        <p className="text-[18px] sm:text-[20px] md:text-[22px] leading-relaxed whitespace-pre-wrap mt-2" style={{ color: 'var(--text-muted)' , letterSpacing: '-0.04em', lineHeight: '1.9em' }}>
           {desc}
         </p>
       </div>
@@ -217,20 +216,46 @@ const CardNav = ({
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-[4px]">
                 {item.links?.map((lnk, i) => (
-                  <a
-                    key={`${lnk.label}-${i}`}
-                    className="nav-card-link inline-flex items-center gap-[10px] no-underline transition-opacity duration-300 hover:opacity-45 text-[18px] sm:text-[20px] md:text-[23px] cursor-pointer"
-                    href={lnk.href}
-                    {...(idx === 2 ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    aria-label={lnk.ariaLabel}
-                  >
-                    {idx === 2 ? (
-                      <FiExternalLink className="nav-card-link-icon shrink-0 text-[26px]" aria-hidden="true" />
-                    ) : (
-                      <GoArrowUpRight className="nav-card-link-icon shrink-0 text-[26px]" aria-hidden="true" />
+                  <div key={`${lnk.label}-${i}`} className="relative inline-block group w-fit">
+                    <a
+                      className="nav-card-link inline-flex items-center gap-[10px] no-underline transition-opacity duration-300 hover:opacity-45 text-[18px] sm:text-[20px] md:text-[23px] cursor-pointer"
+                      href={lnk.href}
+                      {...(idx === 2 && !lnk.href?.startsWith('mailto:') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      aria-label={lnk.ariaLabel}
+                    >
+                      {(() => {
+                        const href = lnk.href || '';
+                        if (href.startsWith('mailto:')) {
+                          return <FiMail className="nav-card-link-icon shrink-0 text-[26px]" aria-hidden="true" />;
+                        }
+                        if (href.includes('github.com')) {
+                          return <FiGithub className="nav-card-link-icon shrink-0 text-[26px]" aria-hidden="true" />;
+                        }
+                        if (href.includes('linkedin.com')) {
+                          return <FiLinkedin className="nav-card-link-icon shrink-0 text-[26px]" aria-hidden="true" />;
+                        }
+                        return idx === 2 ? (
+                          <FiExternalLink className="nav-card-link-icon shrink-0 text-[26px]" aria-hidden="true" />
+                        ) : (
+                          <GoArrowUpRight className="nav-card-link-icon shrink-0 text-[26px]" aria-hidden="true" />
+                        );
+                      })()}
+                      {lnk.href?.startsWith('mailto:') ? (
+                        <>
+                          <span className="hidden md:inline">{lnk.label}</span>
+                          <span className="md:hidden">Email</span>
+                        </>
+                      ) : (
+                        lnk.label
+                      )}
+                    </a>
+                    {lnk.href?.startsWith('mailto:') && (
+                      <div className="absolute left-[50%] bottom-full mb-2 px-3 py-1.5 bg-white text-gray-800 text-[16px] font-display rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-200 z-50" style={{ transform: 'translateX(calc(-50% + 20px))' }}>
+                        ronitr.dev@gmail.com
+                        <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white"></div>
+                      </div>
                     )}
-                    {lnk.label}
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>

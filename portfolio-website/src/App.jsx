@@ -10,37 +10,10 @@ import DarkModeToggle from './components/DarkModeToggle';
 import Footer from './components/Footer';
 import Construction from './components/Construction';
 import Me from './components/Me';
+import { NAV_ITEMS } from './config/links';
 
 const App = () => {
-  const items = useMemo(() => [
-    {
-      label: "About",
-      bgColor: "#2D1B3E",
-      textColor: "#fff",
-      links: [
-        { label: "Education", href: "#education", ariaLabel: "About Education" },
-        { label: "Experience", href: "#experience", ariaLabel: "About Experience" }
-      ]
-    },
-    {
-      label: "Projects", 
-      bgColor: "#3A2456",
-      textColor: "#fff",
-      links: [
-        { label: "View Portfolio", href: "#projects", ariaLabel: "View Portfolio" }
-      ]
-    },
-    {
-      label: "Contact",
-      bgColor: "#4A3362", 
-      textColor: "#fff",
-      links: [
-        { label: "Email", href: "mailto:ronitr.dev@gmail.com", ariaLabel: "Email me" },
-        { label: "LinkedIn", href: "https://www.linkedin.com/in/ronit-rout/", ariaLabel: "LinkedIn" },
-        { label: "GitHub", href: "https://github.com/ronit127", ariaLabel: "GitHub" }
-      ]
-    }
-  ], []);
+  const items = useMemo(() => NAV_ITEMS, []);
 
   const [isDark, setIsDark] = useState(() => {
     try {
@@ -81,10 +54,6 @@ const HomePage = ({ items, isDark }) => {
         {isDark ? ( <Starry />) : ( null)}
         <CardNav
           items={items}
-          baseColor="#fff"
-          menuColor="#000"
-          buttonBgColor="#111"
-          buttonTextColor="#fff"
           ease="power3.out"
         />
       </div>

@@ -75,8 +75,8 @@ function Experience() {
 
               <ul className="space-y-3 mt-6">
                 {exp.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <FiArrowRight className="mr-3 flex-shrink-0 mt-0.5" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
+                  <li key={idx} className="flex items-center">
+                    <FiArrowRight className="mr-3 flex-shrink-0" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
                     <span className="font-sans text-lg tracking-wide leading-relaxed" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing: '-0.04em', color: 'var(--text-muted)'}}>
                       {renderHighlightWithTech(highlight)}
                     </span>

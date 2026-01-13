@@ -59,7 +59,7 @@ function Projects() {
                   </span>
                 </div>
                 
-                <p className="font-sans text-[17px] font-normal text-slate-700 tracking-wide leading-snug" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:'-0.03em' }}>
+                <p className="font-sans text-[17px] font-normal tracking-wide leading-snug" style={{color: 'var(--text-muted)', fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:'-0.03em' }}>
                   {project.description}
                 </p>
 
@@ -132,8 +132,8 @@ function Projects() {
    
         <div className="mt-24 text-center">
           <div className="p-12 rounded-md glass-surface">
-            <h3 className="text-3xl font-light text-slate-900 mb-6" style={{letterSpacing: '-0.05em'}}>More Projects</h3>
-            <p className="text-lg font-normal text-slate-700 mb-8" style={{letterSpacing: '-0.03em'}}>
+            <h3 className="text-3xl font-light text-slate-900 mb-6" style={{letterSpacing: '-0.05em', color: 'var(--text-muted)'}}>More Projects</h3>
+            <p className="text-lg font-normal text-slate-700 mb-8" style={{letterSpacing: '-0.03em', color: 'var(--text-muted)'}}>
               Explore my complete portfolio on GitHub to see all my work and contributions.
             </p>
               <a 

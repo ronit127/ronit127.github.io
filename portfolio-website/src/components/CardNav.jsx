@@ -6,6 +6,7 @@ import { FiExternalLink, FiMapPin, FiGithub, FiLinkedin, FiMail, FiTwitter, FiIn
 const CardNav = ({
   items,
   ease = 'power3.out',
+  hoverLabel = null,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef(null);
@@ -176,7 +177,7 @@ const CardNav = ({
           <div className="hidden sm:flex items-center gap-2">
             <FiMapPin className="text-[16px] sm:text-[18px] md:text-[20px]" />
             <p className="text-[16px] sm:text-[18px] md:text-[20px] font-display" style={{ color: 'var(--text-muted)', letterSpacing: '-0.05em' }}>
-              Illinois, USA
+              Illinois
             </p>
           </div>
         </div>
@@ -250,8 +251,8 @@ const CardNav = ({
                       )}
                     </a>
                     {lnk.href?.startsWith('mailto:') && (
-                      <div className="absolute left-[50%] bottom-full mb-2 px-3 py-1.5 bg-white text-gray-800 text-[16px] font-display rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-200 z-50" style={{ transform: 'translateX(calc(-50% + 20px))' }}>
-                        ronitr.dev@gmail.com
+                      <div className={`absolute left-[50%] bottom-full mb-2 px-3 py-1.5 bg-white text-gray-800 text-[16px] font-display rounded-lg shadow-lg transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-200 z-50 ${hoverLabel ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} style={{ transform: 'translateX(calc(-50% + 20px))' }}>
+                        {hoverLabel ?? 'ronitr.dev@gmail.com'}
                         <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white"></div>
                       </div>
                     )}

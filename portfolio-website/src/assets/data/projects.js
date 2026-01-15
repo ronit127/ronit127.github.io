@@ -3,23 +3,33 @@ import regexImg from './images/regexprojectimage.PNG';
 const projects = [
     {
         title: "Visual Debugger",
-        description: "A visual Python code editor and debugger with real-time data structure visualizations.",
+        description: "Web-based Python debugger that steps execution and visualizes evolving data structures.",
         liveLink: "",
         repoLink: "https://github.com/ronit127/visual-debugger",
         image: regexImg,
         technologies: ["TypeScript", "React", "NextJS", "Python", "TailwindCSS", "Flask"],
+        badges: ["Led 15+ Team Members"]
     },
     {
         title: "PrairieLearn Boolean Element",
-        description: "A boolean expression evaluator serving as an add-on to the Prairielearn platform",
+        description: "Custom PrairieLearn boolean-expression question type with symbolic input and equivalence checking.",
         liveLink: "",
         repoLink: "",
         image: regexImg,
         technologies: ["JavaScript", "Python", "HTML", "CSS", "Mustache"],
     },
+      {
+        title: "Formal Regular Expression Parser",
+        description: "Formal regex analysis tool that constructs and simulates finite automata.",
+        liveLink: "https://ronit127.github.io/formal-regular-expressions/",
+        repoLink: "https://ronit127.github.io/formal-regular-expressions/",
+        image: regexImg,
+        technologies: ["Python", "PyScript", "NetworkX", "HTML", "CSS"],
+        badges: ["Featured by Algo Prof", "Used by 50+ Students"],
+    },
     {
         title: "Real-Time TCP Vocoder",
-        description: "Streams audio with voice effects applied across multiple Raspberry Pis over TCP.",
+        description: "Low-latency TCP audio streaming system with real-time voice effects on Raspberry Pis.",
         liveLink: "",
         repoLink: "https://github.com/aashvibusa/341-Honors-Project",
         image: regexImg,
@@ -27,27 +37,20 @@ const projects = [
     },
     {
         title: "Samplify: Modular Music Sampler",
-        description: "Audio-editing platform for block-based sample manipulation and sequencing.",
+        description: "Built a small domain-specific language and interpreter for block-based audio sequencing and playback.",
         liveLink: "",
         repoLink: "https://github.com/isaacangyu/musicSampler",
         image: regexImg,
         technologies: ["Python", "Flask", "HTML", "CSS", "PyDub", "Pygame"],
     },
     {
-        title: "Formal Regular Expression Parser",
-        description: "Tool that parses formal regular expressions and analyzes their languages. Simulates DFA/NFA algorithms.",
-        liveLink: "https://ronit127.github.io/formal-regular-expressions/",
-        repoLink: "https://github.com/ronit127/formal-regular-expressions",
-        image: regexImg,
-        technologies: ["Python", "PyScript", "NetworkX", "HTML", "CSS"],
-    },
-    {
         title: "StudyBud: AI Study Plan Generator",
-        description: "An AI-powered study planner processing PDFs and MP3s into personalized study guides with GPT-3.5.",
+        description: "Study planner that converts PDFs and MP3s into structured study guides using LLMs.",
         liveLink: "",
         repoLink: "https://github.com/rishi-m100/ai-study-plan-generator-app",
         image: regexImg,
-        technologies: ["JavaScript", "React", "NextJS", "Python", "OpenAI API", "Flask"],
+        technologies: ["JavaScript", "React", "Python", "Flask"],
+        badges: ["HackIllinois Finalist"],
     }
 ];
 

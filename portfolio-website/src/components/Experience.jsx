@@ -3,11 +3,26 @@ import { useState, useEffect } from 'react';
 import { renderTextWithTechChips } from '../lib/renderTextWithTechChips';
 
 function Experience() {
-  const [isDark, setIsDark] = useState(() => 
-    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
-  );
+  const [isDark, setIsDark] = useState(() => {
+    try {
+      const stored = window.localStorage?.getItem('prefers-dark');
+      if (stored !== null) return stored === 'true';
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch (e) {
+      return typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
+    }
+  });
 
   useEffect(() => {
+    try {
+      const stored = window.localStorage?.getItem('prefers-dark');
+      if (stored !== null) {
+        setIsDark(stored === 'true');
+      } else if (window.matchMedia) {
+        setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+    } catch (e) {}
+
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains('dark'));
     });
@@ -33,7 +48,7 @@ function Experience() {
       location: 'Urbana, IL',
       period: 'Jan 2025 – Present',
       highlights: [
-        'Led 17-member team building a Python editor with real-time visualizations',
+        'Led student developer team to build a Python editor with real-time visualizations',
         'Built a Flask REST API with a JavaScript and D3.js frontend for interactive data structure visualization.'
       ]
     },

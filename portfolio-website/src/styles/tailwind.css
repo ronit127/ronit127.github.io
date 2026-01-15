@@ -11,13 +11,15 @@
   }
 
   :root {
-    --app-bg: rgb(240, 240, 240);
-    --surface: rgba(249, 249, 249);
-    --surface-border: rgba(62, 62, 62, 0.18);
+    --app-bg: #f0f0f0;
+    --surface: #f4f4f4;
+    --surface-border: rgba(162, 162, 162, 0.214);
 
     --text-strong: rgb(15, 23, 42);
     --text: rgb(51, 65, 85);
     --text-muted: rgb(71, 85, 105);
+
+    --text-purple: var(--accent-purple)
   }
   
   body {

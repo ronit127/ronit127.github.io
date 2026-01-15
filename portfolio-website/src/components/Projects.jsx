@@ -8,11 +8,26 @@ import { FaFolder, FaFolderOpen } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 function Projects() {
-  const [isDark, setIsDark] = useState(() => 
-    typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
-  );
+  const [isDark, setIsDark] = useState(() => {
+    try {
+      const stored = window.localStorage?.getItem('prefers-dark');
+      if (stored !== null) return stored === 'true';
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch (e) {
+      return typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
+    }
+  });
 
   useEffect(() => {
+    try {
+      const stored = window.localStorage?.getItem('prefers-dark');
+      if (stored !== null) {
+        setIsDark(stored === 'true');
+      } else if (window.matchMedia) {
+        setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+    } catch (e) {}
+
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains('dark'));
     });
@@ -40,31 +55,41 @@ function Projects() {
         <h2 className="section-title">Portfolio</h2>
         
         <div className="grid md:grid-cols-2 gap-4">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden p-8 rounded-lg glass-surface flex flex-col min-h-[280px] transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-            >
+          {projects.map((project, index) => {
+            const hasLink = Boolean(project.repoLink || project.liveLink);
+            const href = project.repoLink || project.liveLink;
+            const Tag = hasLink ? 'a' : 'div';
+            return (
+              <Tag
+                key={index}
+                {...(hasLink ? { href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': project.repoLink ? `View source for ${project.title}` : `View live for ${project.title}` } : {})}
+                className={`group block relative overflow-visible p-8 rounded-lg glass-surface flex flex-col min-h-[280px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]` + (hasLink ? ' active:translate-y-[1px]' : '')}
+                style={hasLink ? { transition: 'all 300ms cubic-bezier(0.22,1,0.36,1)' } : {}}
+                onMouseEnter={(e) => hasLink && (e.currentTarget.style.boxShadow = '0 2px 3px 0 hsla(0, 0%, 0%, 0.2)', e.currentTarget.style.filter = 'brightness(1.005)')}
+                onMouseLeave={(e) => hasLink && (e.currentTarget.style.boxShadow = '', e.currentTarget.style.filter = '')}
+              >
         
-              <div className="flex flex-col h-full">
-                <div className="flex-[0.6]" aria-hidden="true" />
+                <div className="flex flex-col h-full">
+                  <div className="flex-[0.6]" aria-hidden="true" />
 
-                <div className="flex items-center justify-between mb-3 transition-all duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-hover:scale-[1.02]" style={{ transformOrigin: 'left center' }}>
-                  <h3 className="card-title">
-                    {project.title}
-                  </h3>
-                  <span className="text-slate-400 relative">
-                    <FaFolder size={20} className="absolute inset-0 transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0" />
-                    <FaFolderOpen size={20} className="transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100" />
-                  </span>
-                </div>
-                
-                <p className="font-sans text-[17px] font-normal tracking-wide leading-snug" style={{color: 'var(--text-muted)', fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:'-0.03em' }}>
-                  {project.description}
-                </p>
+                  <div className="flex items-center justify-between mb-3" style={{ transformOrigin: 'left center' }}>
+                    <h3 className="card-title text-[var(--text-muted)] group-hover:!text-[var(--text-purple)]">
+                      <span className="relative inline-flex items-center">
+                        <span>{project.title}</span>
+                      </span>
+                    </h3>
+                    {hasLink && (
+                      <span className="text-[var(--text-muted)] relative inline-flex items-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[var(--text-strong)] group-hover:translate-x-1 group-hover:-translate-y-1 flex-shrink-0">
+                        <FiArrowUpRight size={20} />
+                      </span>
+                    )}
+                  </div>
+                  
+                  <p className="font-sans text-[17px] font-normal tracking-wide leading-snug " style={{color: 'var(--text-muted)', fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:'-0.03em' }}>
+                    {project.description}
+                  </p>
 
-                <div className="transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-8 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-[280px] group-hover:mt-6 pointer-events-none group-hover:pointer-events-auto space-y-5">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-4">
                     {project.technologies
                       .filter(tech => techIcons[tech])
                       .map((tech) => {
@@ -77,7 +102,7 @@ function Projects() {
                             style={{
                               color: isDark ? 'rgb(248, 250, 252)' : '#3A2456b3',
                               background: 'var(--surface)',
-                              border: isDark ? '1.5px solid #cbd5e1' : `1.5px solid #3A2456b3`
+                              boxShadow: isDark ? 'inset 0 0 0 1.5px #cbd5e1' : `inset 0 0 0 1.5px #3A2456b3`
                             }}
                           >
                             <Icon 
@@ -89,45 +114,27 @@ function Projects() {
                         );
                       })}
                   </div>
-               
-                  <div className="flex gap-3">
-                    {project.liveLink && (
-                      <a 
-                        href={project.liveLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        aria-label={`Open live project: ${project.title}`}
-                        className="inline-flex items-center gap-1.5 px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
-                        style={{
-                          background: '#3A2456b3',
-                          border: '1.5px solid var(--accent-purple-border, #3A245650)'
-                        }}
-                      >
-                        <FiArrowUpRight size={16} />
-                        View Live
-                      </a>
-                    )}
-                    {project.repoLink && (
-                      <a 
-                        href={project.repoLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        aria-label={`Open source code for ${project.title}`}
-                         className="inline-flex items-center gap-2 px-5 py-2 rounded-md text-white font-normal text-sm transition-all duration-[1250ms] ease-[cubic-bezier(0.22,1,0.36,1)] opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:scale-100 active:brightness-[1.4]"
-                        style={{
-                          background: '#3A2456b3',
-                          border: '1.5px solid var(--accent-purple-border, #3A245650)'
-                        }}
-                      >
-                        <FiArrowUpRight size={16} />
-                        View Source
-                      </a>
-                    )}
-                  </div>
+
+                  {project.badges && project.badges.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {project.badges.map((badge) => (
+                        <span
+                          key={badge}
+                          className="px-3 py-1 text-white rounded-sm text-sm font-normal whitespace-nowrap flex-shrink-0"
+                          style={{
+                            background: '#3A2456b3',
+                            boxShadow: 'inset 0 0 0 1px #3A245650',
+                          }}
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
-            </div>
-          ))}
+              </Tag>
+            );
+          })}
         </div>
    
         <div className="mt-24 text-center">
@@ -144,7 +151,8 @@ function Projects() {
                 className="inline-flex items-center px-5 py-2 gap-1.5 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:brightness-[1.4]"
               style={{
                 background: '#3A2456b3',
-                border: '1.5px solid var(--accent-purple-border, #3A245650)'
+                border: '1.5px solid var(--accent-purple-border, #3A245650)',
+                boxShadow: 'inset 0 1px 3px hsla(0, 0%, 0%, 0.20)'
               }}
             >
               <FiArrowUpRight size={16} />

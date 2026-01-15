@@ -47,6 +47,7 @@ const App = () => {
 };
 
 const HomePage = ({ items, isDark }) => {
+  const [hoverLabel, setHoverLabel] = useState(null);
   return (
     <div className="page-bg">
       <DarkModeToggle />
@@ -55,16 +56,15 @@ const HomePage = ({ items, isDark }) => {
         <CardNav
           items={items}
           ease="power3.out"
+          hoverLabel={hoverLabel}
         />
       </div>
       
       <div className="relative z-10">
         <Education />
         <Experience />
-        <Projects />
+        <Projects setHoverLabel={setHoverLabel} />
         <BackToTop />
-        <Construction />
-        <Footer />
       </div>
     </div>
   );

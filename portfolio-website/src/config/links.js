@@ -8,7 +8,7 @@ export const CONTACT_LINK = {
 
 export const NAV_ITEMS = [
   {
-    label: "About",
+    label: "Background",
     bgColor: "#2D1B3E",
     textColor: "#fff",
     links: [
@@ -25,7 +25,7 @@ export const NAV_ITEMS = [
     ]
   },
   {
-    label: "My Links",
+    label: "Links",
     bgColor: "#4A3362", 
     textColor: "#fff",
     links: [

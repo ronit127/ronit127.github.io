@@ -43,7 +43,7 @@ export const renderTextWithTechChips = (text, isDark, chipSize = 'text-xs') => {
       <span key={`${tech}-${match.index}`} className={`inline-flex items-center gap-1 px-2 py-0.5 rounded ${chipSize} font-normal mx-1`} style={{
         color: isDark ? 'rgb(226, 232, 240)' : '#3A2456b3',
         background: 'var(--surface)',
-        border: isDark ? '1.5px solid #cbd5e1' : '1.5px solid #3A2456b3',
+        border: isDark ? '1px solid #cbd5e1' : '1px solid #3A2456b3',
       }}>
         <Icon size={12} style={{ flexShrink: 0 }} />
         <span>{tech}</span>

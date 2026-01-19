@@ -5,7 +5,7 @@ const Starry = ({ count = 30 }) => {
     return Array.from({ length: count }).map(() => {
       const left = Math.random() * 100;
       const top = Math.random() * 100;
-      const size = Math.random() * 1.5 + 0.5;
+      const size = Math.max(1, Math.round(Math.random() * 1.5 + 0.5));
       const duration = 2 + Math.random() * 3;
       const delay = Math.random() * -10;
       
@@ -56,7 +56,7 @@ const Starry = ({ count = 30 }) => {
           width: 300%;
           height: 1px;
           background: linear-gradient(90deg, transparent, var(--star-color), transparent);
-          filter: blur(0.5px);
+          filter: blur(1px);
         }
 
         /* The vertical flare line */
@@ -69,7 +69,7 @@ const Starry = ({ count = 30 }) => {
           width: 300%;
           height: 1px;
           background: linear-gradient(90deg, transparent, var(--star-color), transparent);
-          filter: blur(0.5px);
+          filter: blur(1px);
         }
 
         .starry-scene {

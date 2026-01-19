@@ -54,7 +54,7 @@ function Projects() {
       <div className="max-w-[1200px] mx-auto">
         <h2 className="section-title">Portfolio</h2>
         
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => {
             const hasLink = Boolean(project.repoLink || project.liveLink);
             const href = project.repoLink || project.liveLink;
@@ -63,15 +63,15 @@ function Projects() {
               <Tag
                 key={index}
                 {...(hasLink ? { href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': project.repoLink ? `View source for ${project.title}` : `View live for ${project.title}` } : {})}
-                className={`group block relative overflow-visible p-8 rounded-lg glass-surface flex flex-col min-h-[280px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]` + (hasLink ? ' active:translate-y-[1px]' : '')}
-                style={hasLink ? { transition: 'all 300ms cubic-bezier(0.22,1,0.36,1)' } : {}}
-                onMouseEnter={(e) => hasLink && (e.currentTarget.style.boxShadow = '0 2px 3px 0 hsla(0, 0%, 0%, 0.2)', e.currentTarget.style.filter = 'brightness(1.005)')}
-                onMouseLeave={(e) => hasLink && (e.currentTarget.style.boxShadow = '', e.currentTarget.style.filter = '')}
+                className={`group block relative overflow-visible p-8 rounded-lg glass-surface flex-col min-h-[200px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]` + (hasLink ? ' active:translate-y-[1px]' : '')}
+                style={{ border: 0, boxShadow: 'inset 0 0 1px 2px #57378111, 0 1px 4px 1px #0000000d, 0 4px 6px 1px #0000000d' }}
+                onMouseEnter={(e) => hasLink && (e.currentTarget.style.boxShadow = 'inset 0 0 1px 1px #57378111, 0 1px 3px 1px #0000000d, 0 2px 4px 1px #0000000d', e.currentTarget.style.filter = 'brightness(1.005)')}
+                onMouseLeave={(e) => hasLink && (e.currentTarget.style.boxShadow = 'inset 0 0 1px 2px #57378111, 0 2px 4px 1px #0000000d, 0 4px 6px 1px #0000000d', e.currentTarget.style.filter = '')}
               >
         
                 <div className="flex flex-col h-full">
-                  <div className="flex-[0.6]" aria-hidden="true" />
 
+                  {/* title and arrow link */}
                   <div className="flex items-center justify-between mb-3" style={{ transformOrigin: 'left center' }}>
                     <h3 className="card-title text-[var(--text-muted)] group-hover:!text-[var(--text-purple)]">
                       <span className="relative inline-flex items-center">
@@ -79,16 +79,17 @@ function Projects() {
                       </span>
                     </h3>
                     {hasLink && (
-                      <span className="text-[var(--text-muted)] relative inline-flex items-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[var(--text-strong)] group-hover:translate-x-1 group-hover:-translate-y-1 flex-shrink-0">
+                      <span className="text-[var(--text-muted)] relative inline-flex items-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[var(--text-strong)] group-hover:translate-x-2 group-hover:-translate-y-2 flex-shrink-0">
                         <FiArrowUpRight size={20} />
                       </span>
                     )}
                   </div>
                   
-                  <p className="font-sans text-[17px] font-normal tracking-wide leading-snug " style={{color: 'var(--text-muted)', fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing:'-0.03em' }}>
+                  <p className="font-sans text-ui-17 font-normal tracking-tight-px" style={{color: 'var(--text-muted)', fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}>
                     {project.description}
                   </p>
-
+                  
+                  {/* tech chips */}
                   <div className="flex flex-wrap gap-2 mt-4">
                     {project.technologies
                       .filter(tech => techIcons[tech])
@@ -102,7 +103,7 @@ function Projects() {
                             style={{
                               color: isDark ? 'rgb(248, 250, 252)' : '#3A2456b3',
                               background: 'var(--surface)',
-                              boxShadow: isDark ? 'inset 0 0 0 1.5px #cbd5e1' : `inset 0 0 0 1.5px #3A2456b3`
+                              boxShadow: isDark ? 'inset 0 0 0 1px #cbd5e1' : `inset 0 0 0 1px #3A2456b3`
                             }}
                           >
                             <Icon 
@@ -114,7 +115,8 @@ function Projects() {
                         );
                       })}
                   </div>
-
+                  
+                  {/* flex badges */}
                   {project.badges && project.badges.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-3">
                       {project.badges.map((badge) => (
@@ -139,8 +141,8 @@ function Projects() {
    
         <div className="mt-24 text-center">
           <div className="p-12 rounded-md glass-surface">
-            <h3 className="text-3xl font-light text-slate-900 mb-6" style={{letterSpacing: '-0.05em', color: 'var(--text-muted)'}}>More Projects</h3>
-            <p className="text-lg font-normal text-slate-700 mb-8" style={{letterSpacing: '-0.03em', color: 'var(--text-muted)'}}>
+            <h3 className="text-3xl tracking-tight-px font-light text-slate-900 mb-6" style={{color: 'var(--text-muted)'}}>More Projects</h3>
+            <p className="text-lg tracking-tight-px font-normal text-slate-700 mb-8" style={{color: 'var(--text-muted)'}}>
               Explore my complete portfolio on GitHub to see all my work and contributions.
             </p>
               <a 
@@ -151,8 +153,8 @@ function Projects() {
                 className="inline-flex items-center px-5 py-2 gap-1.5 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:brightness-[1.4]"
               style={{
                 background: '#3A2456b3',
-                border: '1.5px solid var(--accent-purple-border, #3A245650)',
-                boxShadow: 'inset 0 1px 3px hsla(0, 0%, 0%, 0.20)'
+                border: '1px solid var(#2e1f48, #3A245650)',
+                boxShadow: 'inset 0 1px 3px hsla(0, 0%, 0%, 0.30) '
               }}
             >
               <FiArrowUpRight size={16} />

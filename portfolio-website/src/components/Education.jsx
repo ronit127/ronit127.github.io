@@ -48,19 +48,19 @@ function Education() {
                 <h3 className="card-title leading-tight">
                   University of Illinois Urbana-Champaign
                 </h3>
-                <p className="text-base md:text-lg font-display leading-snug" style={{ color: 'var(--text-muted)' }}>
+                <p className="text-base md:text-lg font-display tracking-tight-px" style={{ color: 'var(--text-muted)' }}>
                   B.S. Computer Science and Learning Sciences
                 </p>
               </div>
 
               <div className="flex flex-col gap-1 mt-4 md:mt-0 text-left md:text-right">
-                <p className="text-base md:text-lg leading-snug" style={{ color: 'var(--text-muted)' }}> Aug 2023 - May 2027 </p>
+                <p className="text-base md:text-lg" style={{ color: 'var(--text-muted)' }}> Aug 2023 - May 2027 </p>
               </div>
             </div>
 
             <div className="space-y-4 mt-6">
               <div>
-                <h4 className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
+                <h4 className="text-sm font-semibold uppercase tracking-caps mb-2" style={{ color: 'var(--text-muted)' }}>
                   What I was Involved In
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -88,7 +88,7 @@ function Education() {
               </div>
 
               <div>
-                <h4 className="text-sm font-semibold uppercase tracking-wide mb-2" style={{ color: 'var(--text-muted)' }}>
+                <h4 className="text-sm font-semibold uppercase tracking-caps mb-2" style={{ color: 'var(--text-muted)' }}>
                   Courses I Took
                 </h4>
               

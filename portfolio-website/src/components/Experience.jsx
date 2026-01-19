@@ -74,15 +74,15 @@ function Experience() {
             <div key={index} className="p-8 md:p-10 rounded-lg glass-surface">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
-                  <h3 className="card-title leading-tight">
+                  <h3 className="card-title leading-[25px] md:leading-[30px]">
                     {exp.title}
                   </h3>
-                  <p className="text-lg mb-1" style={{color: 'var(--text-muted)'}}>
+                  <p className="text-lg mb-1 tracking-tight-px" style={{color: 'var(--text-muted)'}}>
                     {exp.company}
                   </p>
                 </div>
                 <div className="mt-3 md:mt-0">
-                  <p className="text-lg md:text-right" style={{color: 'var(--text-muted)'}}>
+                  <p className="text-lg md:text-right tracking-tight-px" style={{color: 'var(--text-muted)'}}>
                     {exp.period}
                   </p>
                 </div>
@@ -90,9 +90,9 @@ function Experience() {
 
               <ul className="space-y-3 mt-6">
                 {exp.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-center">
-                    <FiArrowRight className="mr-3 flex-shrink-0" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
-                    <span className="font-sans text-lg tracking-wide leading-relaxed" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing: '-0.04em', color: 'var(--text-muted)'}}>
+                  <li key={idx} className="flex items-start">
+                    <FiArrowRight className="mr-3 mt-1 flex-shrink-0" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
+                    <span className="font-sans text-lg tracking-tight-px leading-[28px]" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', color: 'var(--text-muted)'}}>
                       {renderHighlightWithTech(highlight)}
                     </span>
                   </li>

@@ -6,6 +6,7 @@ import {
 } from 'react-icons/si';
 import { FaFolder, FaFolderOpen } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
+import FeaturedProject from './FeaturedProject';
 
 function Projects() {
   const [isDark, setIsDark] = useState(() => {
@@ -54,6 +55,8 @@ function Projects() {
       <div className="max-w-[1200px] mx-auto">
         <h2 className="section-title">Portfolio</h2>
         
+        <FeaturedProject />
+        
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => {
             const hasLink = Boolean(project.repoLink || project.liveLink);
@@ -64,9 +67,8 @@ function Projects() {
                 key={index}
                 {...(hasLink ? { href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': project.repoLink ? `View source for ${project.title}` : `View live for ${project.title}` } : {})}
                 className={`group block relative overflow-visible p-8 rounded-lg glass-surface flex-col min-h-[200px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]` + (hasLink ? ' active:translate-y-[1px]' : '')}
-                style={{ border: 0, boxShadow: 'inset 0 0 1px 2px #57378111, 0 1px 4px 1px #0000000d, 0 4px 6px 1px #0000000d' }}
-                onMouseEnter={(e) => hasLink && (e.currentTarget.style.boxShadow = 'inset 0 0 1px 1px #57378111, 0 1px 3px 1px #0000000d, 0 2px 4px 1px #0000000d', e.currentTarget.style.filter = 'brightness(1.005)')}
-                onMouseLeave={(e) => hasLink && (e.currentTarget.style.boxShadow = 'inset 0 0 1px 2px #57378111, 0 2px 4px 1px #0000000d, 0 4px 6px 1px #0000000d', e.currentTarget.style.filter = '')}
+                onMouseEnter={(e) => hasLink && (e.currentTarget.style.filter = 'brightness(1.009)')}
+                onMouseLeave={(e) => hasLink && (e.currentTarget.style.filter = '')}
               >
         
                 <div className="flex flex-col h-full">
@@ -103,7 +105,7 @@ function Projects() {
                             style={{
                               color: isDark ? 'rgb(248, 250, 252)' : '#3A2456b3',
                               background: 'var(--surface)',
-                              boxShadow: isDark ? 'inset 0 0 0 1px #cbd5e1' : `inset 0 0 0 1px #3A2456b3`
+                              boxShadow: isDark ? 'inset 0 0 0 1px #cbd5e1' : `inset 0 0 0 1px #3A245657`
                             }}
                           >
                             <Icon 

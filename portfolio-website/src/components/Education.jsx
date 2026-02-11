@@ -48,7 +48,7 @@ function Education() {
                 <h3 className="card-title leading-tight">
                   University of Illinois Urbana-Champaign
                 </h3>
-                <p className="text-base md:text-lg font-display tracking-tight-px" style={{ color: 'var(--text-muted)' }}>
+                <p className="text-base md:text-lg font-display tracking-[-0.5px]" style={{ color: 'var(--text-muted)' }}>
                   B.S. Computer Science and Learning Sciences
                 </p>
               </div>

@@ -38,8 +38,10 @@ function Experience() {
       location: 'Remote',
       period: 'Aug 2025 – Present',
       highlights: [
-        'Worked on building accessible and responsive React components with TypeScript and Tailwind CSS',
-        'Streamlined Python tests with Playwright and Pytest, cutting CI run times by 40%',
+        'Built accessible, responsive React components using TypeScript and Tailwind CSS for a map-based property discovery platform'
+        //  designing filtering UI with geographic diversity logic to improve user exploration across large \
+        //  property datasets, supported by Cosmos DB spatial queries',
+       , 'Developed a filtering UI with geographic diversity logic for better user exploration across property dataset, supported by Cosmos DB spatial queries',
       ]
     },
     {
@@ -48,8 +50,9 @@ function Experience() {
       location: 'Urbana, IL',
       period: 'Jan 2025 – Present',
       highlights: [
-        'Led student developer team to build a Python editor with real-time visualizations',
-        'Built a Flask REST API with a JavaScript and D3.js frontend for interactive data structure visualization.'
+        'Led student developer team to build a web-based Python editor with real-time visualizations of lists, stacks, queues, heaps, dictionaries and graphs',
+        'Built a Flask REST API with a JavaScript and D3.js frontend for data structure visualizations',
+        'Facilitated weekly code reviews. Delivered live demo presentations at project showcase with 100+ attendees'
       ]
     },
     {
@@ -77,7 +80,7 @@ function Experience() {
                   <h3 className="card-title leading-[25px] md:leading-[30px]">
                     {exp.title}
                   </h3>
-                  <p className="text-lg mb-1 tracking-tight-px" style={{color: 'var(--text-muted)'}}>
+                  <p className="text-lg mb-1 tracking-[-0.75px]" style={{color: 'var(--text-muted)'}}>
                     {exp.company}
                   </p>
                 </div>
@@ -91,8 +94,8 @@ function Experience() {
               <ul className="space-y-3 mt-6">
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-start">
-                    <FiArrowRight className="mr-3 mt-1 flex-shrink-0" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
-                    <span className="font-sans text-lg tracking-tight-px leading-[28px]" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', color: 'var(--text-muted)'}}>
+                    <FiArrowRight className="mr-3 mt-[7px] flex-shrink-0" size={18} style={{ color: 'var(--accent-purple, #3A2456b3)' }} aria-hidden="true" />
+                    <span className="font-sans text-lg tracking-[-0.75px] leading-[32px] md:leading-[28px] max-w-[75ch]" style={{fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', color: 'var(--text-muted)'}}>
                       {renderHighlightWithTech(highlight)}
                     </span>
                   </li>

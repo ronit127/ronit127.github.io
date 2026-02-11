@@ -171,17 +171,17 @@ const CardNav = ({
     >
       <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-0 px-4 sm:px-0">
         <div className="flex justify-between items-baseline gap-4">
-          <h1 className="text-ui-28 sm:text-ui-36 md:text-ui-48 leading-[34px] sm:leading-[43px] md:leading-[58px] tracking-tight-px sm:tracking-tighter-px md:tracking-tighter-px font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text-muted)' }}>
+          <h1 className="text-ui-28 sm:text-ui-36 md:text-ui-48 leading-[34px] sm:leading-[43px] md:leading-[58px] sm:tracking-tighter-px md:tracking-tighter-px font-display font-light mb-2 md:mb-4" style={{ color: 'var(--text-muted)' }}>
             Hi there, I'm <span className='font-bold'>Ronit Rout</span>!
           </h1>
           <div className="hidden sm:flex items-center gap-2">
             <FiMapPin className="text-ui-16 sm:text-ui-18 md:text-ui-20" />
-            <p className="text-ui-16 sm:text-ui-18 md:text-ui-20 tracking-tight-px font-display" style={{ color: 'var(--text-muted)' }}>
+            <p className="text-ui-16 sm:text-ui-18 md:text-ui-20 font-display" style={{ color: 'var(--text-muted)' }}>
               Illinois
             </p>
           </div>
         </div>
-        <p className="text-ui-18 sm:text-ui-20 md:text-ui-22 leading-[34px] sm:leading-[38px] md:leading-[42px] tracking-tight-px whitespace-pre-wrap mt-2" style={{ color: 'var(--text-muted)' }}>
+        <p className="text-ui-18 sm:text-ui-20 md:text-ui-22 leading-[34px] sm:leading-[38px] md:leading-[42px] whitespace-pre-wrap mt-2" style={{ color: 'var(--text-muted)' }}>
           {desc}
         </p>
       </div>
@@ -212,14 +212,14 @@ const CardNav = ({
                 boxShadow: `0 5px 4px ${item.bgColor}99, inset 0 0 0 3px rgba(255, 255, 255, 0.25)`
               }}
             >
-              <div className="nav-card-label font-normal tracking-tight-px text-ui-24 sm:text-ui-29 md:text-ui-34">
+              <div className="nav-card-label font-normal text-ui-24 sm:text-ui-29 md:text-ui-34">
                 {item.label}
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-[4px]">
                 {item.links?.map((lnk, i) => (
                   <div key={`${lnk.label}-${i}`} className="relative inline-block group w-fit">
                     <a
-                      className="nav-card-link inline-flex items-center gap-[10px] no-underline transition-opacity duration-300 hover:opacity-45 text-ui-18 sm:text-ui-20 md:text-ui-23 cursor-pointer"
+                      className="nav-card-link inline-flex items-center gap-[10px] no-underline transition-opacity duration-300 hover:opacity-45 text-ui-18 sm:text-ui-20 md:text-ui-23 cursor-pointer tracking-[-0.02em] leading-snug"
                       href={lnk.href}
                       {...(idx === 2 && !lnk.href?.startsWith('mailto:') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       aria-label={lnk.ariaLabel}
@@ -251,7 +251,7 @@ const CardNav = ({
                       )}
                     </a>
                     {lnk.href?.startsWith('mailto:') && (
-                      <div className={`absolute left-[50%] bottom-full mb-2 px-3 py-1.5 bg-white text-gray-800 text-ui-16 font-display rounded-lg shadow-lg transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-200 z-50 ${hoverLabel ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} style={{ transform: 'translateX(calc(-50% + 20px))' }}>
+                      <div className={`absolute left-[50%] bottom-full mb-2 px-3 py-[3px] bg-white text-gray-800 text-ui-16 font-display rounded-lg shadow-lg transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-gray-200 z-50 ${hoverLabel ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} style={{ transform: 'translateX(calc(-50% + 20px))' }}>
                         {hoverLabel ?? 'ronitr.dev@gmail.com'}
                         <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white"></div>
                       </div>

@@ -40,10 +40,10 @@ export const renderTextWithTechChips = (text, isDark, chipSize = 'text-xs') => {
     const tech = techKeywords.find(t => t.toLowerCase() === match[1].toLowerCase());
     const Icon = techIcons[tech];
     parts.push(
-      <span key={`${tech}-${match.index}`} className={`inline-flex items-center gap-1 px-2 py-0.5 rounded ${chipSize} font-normal mx-1`} style={{
+      <span key={`${tech}-${match.index}`} className={`inline-flex items-center tracking-[-0.75px] gap-1 px-[6px] py-[1px] rounded ${chipSize} font-normal mx-1`} style={{
         color: isDark ? 'rgb(226, 232, 240)' : '#3A2456b3',
         background: 'var(--surface)',
-        border: isDark ? '1px solid #cbd5e1' : '1px solid #3A2456b3',
+        border: isDark ? '1px solid #cbd5e1' : '1px solid #3a245667',
       }}>
         <Icon size={12} style={{ flexShrink: 0 }} />
         <span>{tech}</span>

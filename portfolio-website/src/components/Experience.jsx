@@ -68,11 +68,12 @@ function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-8">
-      <div className="max-w-[1200px] mx-auto">
+    <section id="experience" className="py-24">
+      <div className="w-[95%] max-w-[1200px] mx-auto">
         <h2 className="section-title">Experience</h2>
         
-        <div className="space-y-4 mt-12">
+        <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-0 px-4 sm:px-0">
+          <div className="space-y-4 mt-12">
           {experiences.map((exp, index) => (
             <div key={index} className="p-8 md:p-10 rounded-lg glass-surface">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -105,6 +106,7 @@ function Experience() {
           ))}
         </div>
       </div>
+    </div>
     </section>
   );
 }

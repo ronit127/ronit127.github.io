@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import visualDebuggerVideo from '../assets/data/images/VisualDebuggerDemo2.mp4';
+import visualDebuggerVideo from '../assets/data/images/VisualDebuggerDemo3.mkv';
 
 export default function FeaturedProject() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -73,7 +73,7 @@ export default function FeaturedProject() {
         onClick={() => toggle(true)}
         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(true); } }}
       >
-          <div className="relative w-full aspect-video overflow-hidden border rounded-lg" style={{ borderColor: 'var(--surface-border)' }}>
+          <div className="relative w-full aspect-[3/2] sm:aspect-video overflow-hidden border rounded-lg" style={{ borderColor: 'var(--surface-border)' }}>
           <video
             ref={videoRef}
               className="w-full h-full object-cover rounded-lg"
@@ -106,8 +106,8 @@ export default function FeaturedProject() {
         </div>
       </div>
 
-      <div className="px-4 py-3">
-        <p className="font-display text-md tracking-tight-px" style={{ color: 'var(--text-muted)' }}>
+      <div className="px-2 py-3">
+        <p className="font-display text-lg tracking-tight-px" style={{ color: 'var(--text-muted)' }}>
           <span className="font-medium" style={{ color: 'var(--text-strong)' }}>Featured Project</span>
           <span className="mx-2 opacity-90">·</span>
           Visual Debugger

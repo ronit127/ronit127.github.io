@@ -1,36 +1,11 @@
 import { FiArrowRight } from 'react-icons/fi';
-import { useState, useEffect } from 'react';
 import { renderTextWithTechChips } from '../lib/renderTextWithTechChips';
 
 function Experience() {
-  const [isDark, setIsDark] = useState(() => {
-    try {
-      const stored = window.localStorage?.getItem('prefers-dark');
-      if (stored !== null) return stored === 'true';
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    } catch (e) {
-      return typeof document !== 'undefined' && document.documentElement.classList.contains('dark');
-    }
-  });
+  // No dark mode — always light
+  const isDark = false;
 
-  useEffect(() => {
-    try {
-      const stored = window.localStorage?.getItem('prefers-dark');
-      if (stored !== null) {
-        setIsDark(stored === 'true');
-      } else if (window.matchMedia) {
-        setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
-      }
-    } catch (e) {}
-
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => observer.disconnect();
-  }, []);
-
-  const renderHighlightWithTech = (text) => renderTextWithTechChips(text, isDark, 'text-md');
+  const renderHighlightWithTech = (text) => renderTextWithTechChips(text, false, 'text-md');
   const experiences = [
     {
       title: 'Software Engineer Intern',

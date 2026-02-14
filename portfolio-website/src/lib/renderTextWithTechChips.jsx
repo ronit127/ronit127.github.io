@@ -20,7 +20,7 @@ const techIcons = {
   'D3.js': SiD3Dotjs
 };
 
-export const renderTextWithTechChips = (text, isDark, chipSize = 'text-xs') => {
+export const renderTextWithTechChips = (text, isDark = false, chipSize = 'text-xs') => {
   const techKeywords = Object.keys(techIcons);
   const escapedTechs = techKeywords.map(t => {
     const escaped = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

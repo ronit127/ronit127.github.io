@@ -167,7 +167,7 @@ const CardNav = ({
 
   return (
     <div
-      className="w-[95%] max-w-[1200px] z-[99] mx-auto relative mt-24 md:mt-2"
+      className="w-[95%] max-w-[1200px] z-[99] mx-auto relative mt-12 md:mt-2"
     >
       <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-0 px-4 sm:px-0">
         <div className="flex justify-between items-baseline gap-4">

@@ -10,9 +10,6 @@ import { NAV_ITEMS } from './config/links';
 const App = () => {
   const items = useMemo(() => NAV_ITEMS, []);
 
-  // No dark mode — always light
-  const isDark = false;
-
   return (
     <Routes>
       <Route path="/" element={<HomePage items={items} />} />

@@ -1,154 +1,41 @@
-import { useRef, useState, useEffect } from 'react';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-
 function Education() {
-  const scrollRef = useRef(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
+  const involvement = [
+    'CS361 Course Assistant',
+    'Project: Code Project Lead',
+    'ACM Game Builders Dev',
+    'PointVR VR Team',
+  ];
 
-  const checkScroll = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
-    }
-  };
-
-  useEffect(() => {
-    checkScroll();
-    const scrollContainer = scrollRef.current;
-    if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', checkScroll);
-      window.addEventListener('resize', checkScroll);
-      return () => {
-        scrollContainer.removeEventListener('scroll', checkScroll);
-        window.removeEventListener('resize', checkScroll);
-      };
-    }
-  }, []);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = 300;
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  };
-  return (
-    <section id="education" className="py-24">
+return (
+    <section id="education" className="pt-24 pb-10">
       <div className="w-[95%] max-w-[1200px] mx-auto">
         <h2 className="section-title">Education</h2>
-        
-        <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-0 px-4 sm:px-0">
-          <div className="p-8 md:p-10 rounded-lg glass-surface">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start md:gap-8 mb-6">
-              <div className="flex flex-col gap-1">
-                <h3 className="card-title leading-tight">
-                  University of Illinois Urbana-Champaign
-                </h3>
-                <p className="text-base md:text-lg font-display tracking-[-0.5px]" style={{ color: 'var(--text-muted)' }}>
-                  B.S. Computer Science and Learning Sciences
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-1 mt-4 md:mt-0 text-left md:text-right">
-                <p className="text-base md:text-lg" style={{ color: 'var(--text-muted)' }}> Aug 2023 - May 2027 </p>
-              </div>
+        <div className="px-4 sm:px-5">
+          <div className="py-8">
+            {/* Primary: university pops with bold weight + strong color */}
+            <div className="flex items-start justify-between gap-4 mb-1">
+              <h3 className="font-display font-medium text-2xl tracking-tight !mb-0" style={{ color: 'var(--text-muted)' }}>
+                University of Illinois Urbana-Champaign
+              </h3>
+              <span
+                className="font-sans text-base shrink-0 rounded-md px-2 py-[3px] border"
+                style={{ color: 'var(--text-muted)', borderColor: 'rgba(150,150,150,0.3)' }}
+              >
+                Aug 2023 – May 2027
+              </span>
             </div>
 
-            <div className="space-y-4 mt-6">
-              <div>
-                <h4 className="text-sm font-semibold uppercase tracking-caps mb-2" style={{ color: 'var(--text-muted)' }}>
-                  What I was Involved In
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    'CS361 Course Assistant',
-                    'Project: Code Project Lead',
-                    'ACM Game Builders Dev',
-                    'PointVR VR Team'
-                  ].map((item) => {
-                    const bgColor = '#3A2456';
-                    return (
-                      <span
-                        key={item}
-                        className="px-3 py-1 text-white rounded-sm text-sm font-normal whitespace-nowrap flex-shrink-0"
-                        style={{
-                          background: `${bgColor}b3`,
-                          border: `1px solid ${bgColor}50`,
-                        }}
-                      >
-                        {item}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
+            {/* Secondary: degree readable but clearly below the university */}
+            <p className="font-sans text-lg mb-6" style={{ color: 'var(--text-muted)' }}>
+              B.S. Computer Science and Learning Sciences
+            </p>
 
-              <div>
-                <h4 className="text-sm font-semibold uppercase tracking-caps mb-2" style={{ color: 'var(--text-muted)' }}>
-                  Courses I Took
-                </h4>
-              
-                <div
-                  ref={scrollRef}
-                  className="flex gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory mb-3"
-                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                >
-                  {[
-                    'Database Systems',
-                    'Software Design',
-                    'Data Structures',
-                    'Algorithms',
-                    'Machine Learning',
-                    'System Programming',
-                    'Designing Software for Education',
-                    'Programming Languages & Compilers',
-                    'Probability & Statistics for CS',
-                    'Computer Architecture',
-                    'Human-Computer Interaction',
-                    'Educational Game Design',
-                    'Educational Technology Capstone',
-                    'Digital Learning Environments'
-                  ].map( course => {
-                    const colors = ['#2D1B3E', '#3A2456', '#4A3362'];
-                    const bgColor = colors[1];
-                    return (
-                      <span
-                        key={course}
-                        className="px-3 py-1 text-white rounded-sm text-sm font-normal whitespace-nowrap snap-start flex-shrink-0"
-                        style={{
-                          background: `${bgColor}b3`,
-                          border: `1px solid ${bgColor}50`,
-                        }}
-                      >
-                        {course}
-                      </span>
-                    );
-                  })}
-                </div>
-
-                <div className="flex justify-between">
-                  <button
-                    onClick={() => scroll('left')}
-                    className={`p-1 text-slate-600 hover:text-slate-900 transition-colors ${!canScrollLeft ? 'invisible' : ''}`}
-                    aria-label="Scroll left"
-                    disabled={!canScrollLeft}
-                  >
-                    <FiChevronLeft size={18} />
-                  </button>
-                  <button
-                    onClick={() => scroll('right')}
-                    className={`p-1 text-slate-600 hover:text-slate-900 transition-colors ${!canScrollRight ? 'invisible' : ''}`}
-                    aria-label="Scroll right"
-                    disabled={!canScrollRight}
-                  >
-                    <FiChevronRight size={18} />
-                  </button>
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-2">
+              {involvement.map(item => (
+                <span key={item} className="px-3 py-1 text-white rounded-sm text-sm font-normal" style={{ background: '#3A2456b3', border: '1px solid #3A245650' }}>
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>

@@ -134,13 +134,11 @@ const CardNav = ({
     <div
       className="w-[95%] max-w-[1200px] z-[99] mx-auto relative mt-10 md:mt-14"
     >
-      <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-0 px-4 sm:px-0">
-        <div>
-          <h1 className="text-ui-28 sm:text-ui-36 md:text-ui-48 leading-[34px] sm:leading-[43px] md:leading-[58px] sm:tracking-tighter-px md:tracking-tighter-px font-display font-light mb-0 md:mb-4" style={{ color: 'var(--text-muted)' }}>
-            Hi there, I&apos;m <span className='font-bold'>Ronit Rout</span>!
-          </h1>
-        </div>
-        <p className="text-ui-18 sm:text-ui-20 md:text-ui-24 leading-[34px] sm:leading-[38px] md:leading-[42px] whitespace-pre-wrap mt-2" style={{ color: 'var(--text-muted)' }}>
+      <div className="mb-8 md:mb-10 max-w-6xl mx-auto px-4 sm:px-0 flex flex-col gap-4 md:gap-6">
+        <h1 className="text-ui-28 sm:text-ui-36 md:text-ui-48 leading-[34px] sm:leading-[43px] md:leading-[58px] sm:tracking-tighter-px md:tracking-tighter-px font-display font-light" style={{ color: 'var(--text-muted)' }}>
+          Hi there, I&apos;m <span className='font-bold'>Ronit Rout</span>!
+        </h1>
+        <p className="text-ui-18 sm:text-ui-20 md:text-ui-24 leading-[34px] sm:leading-[38px] md:leading-[42px] whitespace-pre-wrap" style={{ color: 'var(--text-muted)' }}>
           {desc}
         </p>
       </div>
@@ -160,7 +158,7 @@ const CardNav = ({
             <a
               key={`${item.label}-${idx}`}
               href={item.href}
-              className="nav-card select-none relative flex flex-col p-[16px_20px] sm:p-[20px_24px] md:p-[24px_34px] rounded-md min-w-0 flex-[1_1_auto] h-[73px] sm:h-[82px] md:h-[96px] md:flex-[1_1_0%] transition-all duration-300 hover:translate-y-[-5px] hover:brightness-75 no-underline"
+              className="nav-card select-none relative flex flex-col items-start justify-center px-[20px] sm:px-[24px] md:px-[34px] rounded-md min-w-0 flex-[1_1_auto] h-[73px] sm:h-[82px] md:h-[96px] md:flex-[1_1_0%] transition-all duration-300 hover:translate-y-[-5px] hover:brightness-75 no-underline"
               ref={setCardRef(idx)}
               style={{
                 background: `

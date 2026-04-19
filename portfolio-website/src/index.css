@@ -567,7 +567,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings: "rlig" 1, "calt" 1, "kern" 1, "liga" 1, "ss01" 1, "cv05" 1;
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   background: var(--app-bg);
   color: var(--text);
@@ -595,11 +595,6 @@ body.dark,
   background: var(--app-bg);
   min-height: 100vh;
   position: relative;
-}
-
-.glass-surface {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 }
 
 .section-title {

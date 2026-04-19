@@ -42,8 +42,6 @@ function Projects() {
                 key={index}
                 {...(hasLink ? { href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': project.repoLink ? `View source for ${project.title}` : `View live for ${project.title}` } : {})}
                 className={`group block relative overflow-visible p-8 rounded-lg glass-surface flex-col min-h-[200px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]` + (hasLink ? ' active:translate-y-[1px]' : '')}
-                onMouseEnter={(e) => hasLink && (e.currentTarget.style.filter = 'brightness(1.009)')}
-                onMouseLeave={(e) => hasLink && (e.currentTarget.style.filter = '')}
               >
         
                 <div className="flex flex-col h-full">

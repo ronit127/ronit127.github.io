@@ -4,7 +4,7 @@ const experiences = [
   {
     title: 'Software Engineer Intern',
     company: 'Rivian',
-    period: 'Summer 2026',
+    period: 'May 2026 - Aug 2026',
     highlights: [
       'Incoming Summer 2026. Will be building, testing, and deploying AI applications',
     ]
@@ -12,7 +12,7 @@ const experiences = [
   {
     title: 'Software Engineer Intern',
     company: 'Butterflo',
-    period: 'Fall – Spring 2026',
+    period: 'Aug 2025 - Present',
     highlights: [
       'Built accessible, responsive React components using TypeScript and Tailwind CSS for a map-based property discovery platform',
       'Developed a filtering UI with geographic diversity logic for better user exploration across property datasets, supported by Cosmos DB spatial queries',
@@ -31,7 +31,7 @@ const experiences = [
   {
     title: 'Research Software Engineer Intern',
     company: 'Portland State University, Teuscher Lab',
-    period: 'Summer 2024',
+    period: 'May 2024 - Aug 2024',
     highlights: [
       'Created a Python personalized math learning tool with 1K+ question network graph',
       'Developed A* pathfinding algorithms improving performance by 18%',

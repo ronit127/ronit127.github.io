@@ -1,106 +1,123 @@
-import projects from '../assets/data/projects';
-import { 
-  SiPython, SiJavascript, SiReact, SiFlask, SiHtml5, SiCss3, 
-  SiNextdotjs, SiC, SiRaspberrypi, SiOpenai, SiTypescript
-} from 'react-icons/si';
-import { FiArrowUpRight } from 'react-icons/fi';
-import FeaturedProject from './FeaturedProject';
+import projects from "../assets/data/projects";
+import {
+  SiPython,
+  SiJavascript,
+  SiReact,
+  SiFlask,
+  SiHtml5,
+  SiCss3,
+  SiNextdotjs,
+  SiC,
+  SiRaspberrypi,
+  SiOpenai,
+  SiTypescript,
+} from "react-icons/si";
+import { FiArrowUpRight } from "react-icons/fi";
+import FeaturedProject from "./FeaturedProject";
 
 function Projects() {
-  // No dark mode — always light
-  const isDark = false;
-
   const techIcons = {
-    'Python': SiPython,
-    'JavaScript': SiJavascript,
-    'TypeScript': SiTypescript,
-    'React': SiReact,
-    'NextJS': SiNextdotjs,
-    'Flask': SiFlask,
-    'HTML': SiHtml5,
-    'CSS': SiCss3,
-    'C': SiC,
-    'Raspberry Pi': SiRaspberrypi,
-    'OpenAI API': SiOpenai
+    Python: SiPython,
+    JavaScript: SiJavascript,
+    TypeScript: SiTypescript,
+    React: SiReact,
+    NextJS: SiNextdotjs,
+    Flask: SiFlask,
+    HTML: SiHtml5,
+    CSS: SiCss3,
+    C: SiC,
+    "Raspberry Pi": SiRaspberrypi,
+    "OpenAI API": SiOpenai,
   };
 
   return (
     <section id="projects" className="py-24">
       <div className="w-[95%] max-w-[1200px] mx-auto">
         <h2 className="section-title">Portfolio</h2>
-        
+
         <div className="mb-8 md:mb-12 max-w-6xl mx-auto pt-0 px-4 sm:px-0">
           <FeaturedProject />
-          
-          <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => {
-            const hasLink = Boolean(project.repoLink || project.liveLink);
-            const href = project.repoLink || project.liveLink;
-            const Tag = hasLink ? 'a' : 'div';
-            return (
-              <Tag
-                key={index}
-                {...(hasLink ? { href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': project.repoLink ? `View source for ${project.title}` : `View live for ${project.title}` } : {})}
-                className={`group block relative overflow-visible p-8 rounded-lg flex-col min-h-[200px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]` + (hasLink ? ' active:translate-y-[1px]' : '')}
-              >
-        
-                <div className="flex flex-col h-full">
 
-                  {/* title and arrow link */}
-                  <div className="flex items-center justify-between mb-3" style={{ transformOrigin: 'left center' }}>
-                    <h3 className="card-title text-[var(--text-muted)] group-hover:!text-[var(--text-purple)]">
-                      <span className="relative inline-flex items-center">
-                        <span>{project.title}</span>
-                      </span>
+          <div className="grid md:grid-cols-2 gap-4">
+            {projects.map((project, index) => {
+              const repoHref = project.repoLink || null;
+              const liveHref = project.liveLink || null;
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col p-6"
+                  style={{
+                    border: "1px solid rgba(150,150,150,0.18)",
+                    borderRadius: "6px",
+                  }}
+                >
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <h3
+                      className="card-title !mb-0"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {project.title}
                     </h3>
-                    {hasLink && (
-                      <span className="text-[var(--text-muted)] relative inline-flex items-center transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[var(--text-strong)] group-hover:translate-x-2 group-hover:-translate-y-2 flex-shrink-0">
-                        <FiArrowUpRight size={20} />
-                      </span>
-                    )}
+                    <div className="flex items-center gap-3 shrink-0">
+                      {repoHref && (
+                        <a
+                          href={repoHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-sans text-sm underline transition-opacity duration-150 hover:opacity-60"
+                          style={{ color: "var(--text-muted)" }}
+                        >
+                          GitHub
+                        </a>
+                      )}
+                      {liveHref && liveHref !== repoHref && (
+                        <a
+                          href={liveHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-sans text-sm underline transition-opacity duration-150 hover:opacity-60"
+                          style={{ color: "var(--text-muted)" }}
+                        >
+                          Live
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  
-                  <p className="font-sans text-ui-17 font-normal tracking-tight-px" style={{color: 'var(--text-muted)', fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}>
+
+                  <p
+                    className="font-sans text-lg font-normal"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     {project.description}
                   </p>
-                  
-                  {/* tech chips */}
-                  <div className="flex flex-wrap gap-2 mt-4">
+
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 mt-4">
                     {project.technologies
-                      .filter(tech => techIcons[tech])
+                      .filter((tech) => techIcons[tech])
                       .map((tech) => {
                         const Icon = techIcons[tech];
                         return (
-                          <div
+                          <span
                             key={tech}
-                            className="flex items-center gap-1.5 px-3 py-1 text-slate-700 rounded-sm text-sm font-normal whitespace-nowrap"
-                            title={tech}
-                            style={{
-                              color: isDark ? 'rgb(248, 250, 252)' : '#3A2456b3',
-                              background: 'var(--surface)',
-                              boxShadow: isDark ? 'inset 0 0 0 1px #cbd5e1' : `inset 0 0 0 1px #3A245657`
-                            }}
+                            className="inline-flex items-center gap-1 text-md font-normal"
+                            style={{ color: "#3A2456b3" }}
                           >
-                            <Icon 
-                              size={16} 
-                              style={{ flexShrink: 0 }}
-                            />
-                            <span>{tech}</span>
-                          </div>
+                            <Icon size={13} style={{ flexShrink: 0 }} />
+                            {tech}
+                          </span>
                         );
                       })}
                   </div>
-                  
-                  {/* flex badges */}
+
                   {project.badges && project.badges.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-3">
                       {project.badges.map((badge) => (
                         <span
                           key={badge}
-                          className="px-3 py-1 text-white rounded-sm text-sm font-normal whitespace-nowrap flex-shrink-0"
+                          className="px-3 py-1 text-white text-sm font-normal rounded-sm"
                           style={{
-                            background: '#3A2456b3',
-                            boxShadow: 'inset 0 0 0 1px #3A245650',
+                            background: "#3A2456b3",
+                            border: "1px solid #3A245650",
                           }}
                         >
                           {badge}
@@ -109,33 +126,41 @@ function Projects() {
                     </div>
                   )}
                 </div>
-              </Tag>
-            );
-          })}
-        </div>
-   
-        <div className="mt-24 text-center">
-          <div className="p-12 rounded-md glass-surface">
-            <h3 className="text-3xl tracking-tight-px font-light text-slate-900 mb-6" style={{color: 'var(--text-muted)'}}>More Projects</h3>
-            <p className="text-lg tracking-tight-px font-normal text-slate-700 mb-8" style={{color: 'var(--text-muted)'}}>
-              Explore my complete portfolio on GitHub to see all my work and contributions.
-            </p>
-              <a 
-                href="https://github.com/ronit127" 
-                target="_blank" 
+              );
+            })}
+          </div>
+
+          <div className="mt-24 text-center">
+            <div className="p-12 rounded-md glass-surface">
+              <h3
+                className="text-3xl tracking-tight-px font-light text-slate-900 mb-6"
+                style={{ color: "var(--text-muted)" }}
+              >
+                More Projects
+              </h3>
+              <p
+                className="text-lg tracking-tight-px font-normal text-slate-700 mb-8"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Explore my complete portfolio on GitHub to see all my work and
+                contributions.
+              </p>
+              <a
+                href="https://github.com/ronit127"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View all projects on GitHub (opens in new tab)"
                 className="inline-flex items-center px-5 py-2 gap-1.5 rounded-md text-white font-normal text-sm transition-all duration-200 hover:brightness-[1.2] hover:shadow-lg active:shadow-none active:translate-y-[1px] active:brightness-[1.4]"
-              style={{
-                background: '#3A2456b3',
-                border: '1px solid var(#2e1f48, #3A245650)',
-                boxShadow: 'inset 0 1px 3px hsla(0, 0%, 0%, 0.30) '
-              }}
-            >
-              <FiArrowUpRight size={16} />
-              View on GitHub
-            </a>
-          </div>
+                style={{
+                  background: "#3A2456b3",
+                  border: "1px solid var(#2e1f48, #3A245650)",
+                  boxShadow: "inset 0 1px 3px hsla(0, 0%, 0%, 0.30) ",
+                }}
+              >
+                <FiArrowUpRight size={16} />
+                View on GitHub
+              </a>
+            </div>
           </div>
         </div>
       </div>

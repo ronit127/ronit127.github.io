@@ -1,6 +1,6 @@
-import { useLayoutEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { FiMapPin, FiArrowDown } from 'react-icons/fi';
+import { useLayoutEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { FiMapPin, FiArrowDown } from "react-icons/fi";
 
 const L = ({ href, children }) => (
   <a
@@ -13,11 +13,7 @@ const L = ({ href, children }) => (
   </a>
 );
 
-const CardNav = ({
-  items,
-  ease = 'power3.out',
-  hoverLabel = null,
-}) => {
+const CardNav = ({ items, ease = "power3.out", hoverLabel = null }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef(null);
   const cardsRef = useRef([]);
@@ -27,7 +23,7 @@ const CardNav = ({
     const navEl = navRef.current;
     if (!navEl) return 260;
 
-    const contentEl = navEl.querySelector('.card-nav-content');
+    const contentEl = navEl.querySelector(".card-nav-content");
     if (!contentEl) return 360;
 
     const wasVisible = contentEl.style.visibility;
@@ -35,10 +31,10 @@ const CardNav = ({
     const wasPosition = contentEl.style.position;
     const wasHeight = contentEl.style.height;
 
-    contentEl.style.visibility = 'visible';
-    contentEl.style.pointerEvents = 'auto';
-    contentEl.style.position = 'static';
-    contentEl.style.height = 'auto';
+    contentEl.style.visibility = "visible";
+    contentEl.style.pointerEvents = "auto";
+    contentEl.style.position = "static";
+    contentEl.style.height = "auto";
 
     contentEl.offsetHeight;
 
@@ -57,7 +53,7 @@ const CardNav = ({
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 0, overflow: 'hidden' });
+    gsap.set(navEl, { height: 0, overflow: "hidden" });
     gsap.set(cardsRef.current, { y: 60, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
@@ -65,10 +61,14 @@ const CardNav = ({
     tl.to(navEl, {
       height: calculateHeight,
       duration: 0.4,
-      ease
+      ease,
     });
 
-    tl.to(cardsRef.current, { y: 0, opacity: 1, duration: 0.1, ease, stagger: 0.08 }, '-=0.1');
+    tl.to(
+      cardsRef.current,
+      { y: 0, opacity: 1, duration: 0.1, ease, stagger: 0.08 },
+      "-=0.1",
+    );
 
     return tl;
   };
@@ -76,7 +76,7 @@ const CardNav = ({
   useLayoutEffect(() => {
     const tl = createTimeline();
     tlRef.current = tl;
-    
+
     const timer = setTimeout(() => {
       setIsExpanded(true);
       tl?.play(0);
@@ -112,45 +112,55 @@ const CardNav = ({
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [isExpanded]);
 
-  const setCardRef = i => el => {
+  const setCardRef = (i) => (el) => {
     if (el) cardsRef.current[i] = el;
   };
 
-  let desc = (
-    <>
-      I'm a third-year studying CS and education at <L href="https://siebelschool.illinois.edu/">UIUC</L>. I build web apps with TypeScript, React, Python and AWS integrations, usually tools that make learning coding or math skills easier.
-      <br /><br />
-      I'll be interning at <L href="https://www.rivian.com/">Rivian</L> this summer working as an AI software engineer. Currently helping build the beta of <L href="https://butterflo.com/">Butterflo</L>'s real estate platform this spring.
-      I'm also leading a talented team developing a visual Python debugger for <L href="https://projectcodeuiuc.org">Project: Code</L> on campus. 
-      Reach out!{' — '}<L href="mailto:ronitr.dev@gmail.com">email</L>, <L href="https://www.linkedin.com/in/ronit-rout/">LinkedIn</L>, <L href="https://github.com/ronit127">GitHub</L>.
-    </>
-  );
-
   return (
-    <div
-      className="w-[95%] max-w-[1200px] z-[99] mx-auto relative mt-10 md:mt-14"
-    >
+    <div className="w-[95%] max-w-[1200px] z-[99] mx-auto relative mt-10 md:mt-14">
       <div className="mb-8 md:mb-10 max-w-6xl mx-auto px-4 sm:px-0 flex flex-col gap-4 md:gap-6">
-        <h1 className="text-ui-28 sm:text-ui-36 md:text-ui-48 leading-[34px] sm:leading-[43px] md:leading-[58px] sm:tracking-tighter-px md:tracking-tighter-px font-display font-light" style={{ color: 'var(--text-muted)' }}>
-          Hi there, I&apos;m <span className='font-bold'>Ronit Rout</span>!
+        <h1
+          className="text-ui-28 sm:text-ui-36 md:text-ui-48 leading-[34px] sm:leading-[43px] md:leading-[58px] sm:tracking-tighter-px md:tracking-tighter-px font-display font-light"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Hi there, I&apos;m <span className="font-bold">Ronit Rout</span>!
         </h1>
-        <p className="text-ui-18 sm:text-ui-20 md:text-ui-24 leading-[34px] sm:leading-[38px] md:leading-[42px] whitespace-pre-wrap" style={{ color: 'var(--text-muted)' }}>
-          {desc}
+        <p
+          className="text-ui-18 sm:text-ui-20 md:text-ui-24 leading-[34px] sm:leading-[38px] md:leading-[42px]"
+          style={{ color: "var(--text-muted)" }}
+        >
+          I&apos;m a third-year studying CS and education at{" "}
+          <L href="https://siebelschool.illinois.edu/">UIUC</L>. I build web
+          apps with TypeScript, React, Python and AWS integrations, usually
+          tools that make learning coding or math skills easier.
+          <br />
+          <br />
+          I&apos;ll be interning at <L href="https://www.rivian.com/">
+            Rivian
+          </L>{" "}
+          this summer working as an AI software engineer. This spring, I helped
+          build the beta of <L href="https://butterflo.com/">Butterflo</L>
+          &apos;s real estate platform and led a dev team at <L href="https://projectcodeuiuc.org/projects/visual-debugger">Project:Code</L>. Reach
+          out!{" — "}
+          <L href="mailto:ronitr.dev@gmail.com">email</L>,{" "}
+          <L href="https://www.linkedin.com/in/ronit-rout/">LinkedIn</L>,{" "}
+          <L href="https://github.com/ronit127">GitHub</L>.
         </p>
       </div>
 
       <nav
         ref={navRef}
-        className={`${isExpanded ? 'open' : ''} block h-0 p-7 md:p-10 relative rounded-lg overflow-hidden will-change-[height]`}
+        className={`${isExpanded ? "open" : ""} block h-0 p-7 md:p-10 relative rounded-lg overflow-hidden will-change-[height]`}
       >
-    
         <div
           className={`card-nav-content p-4 md:p-6 absolute left-0 right-0 top-[0px] bottom-0 flex flex-col font-display items-stretch gap-3 md:gap-[19px] justify-center z-[1] ${
-            isExpanded ? 'visible pointer-events-auto' : 'invisible pointer-events-none'
+            isExpanded
+              ? "visible pointer-events-auto"
+              : "invisible pointer-events-none"
           } md:flex-row md:items-center`}
           aria-hidden={!isExpanded}
         >
@@ -167,7 +177,7 @@ const CardNav = ({
                 `,
                 color: item.textColor,
                 border: `1px solid ${item.borderColor}80`,
-                boxShadow: `0 5px 4px ${item.bgColor}99, inset 0 0 0 3px rgba(255, 255, 255, 0.25)`
+                boxShadow: `0 5px 4px ${item.bgColor}99, inset 0 0 0 3px rgba(255, 255, 255, 0.25)`,
               }}
             >
               <div className="nav-card-label font-normal text-ui-18 sm:text-ui-24 md:text-ui-34 flex items-center gap-2">

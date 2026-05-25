@@ -579,18 +579,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body.dark,
-  .dark body {
-  --app-bg: rgb(11, 16, 32);
-  --surface: rgba(20, 22, 40, 0.72);
-  --surface-border: rgba(255, 255, 255, 0.10);
-  --text-strong: rgb(248, 250, 252);
-  --text: rgb(226, 232, 240);
-  --text-muted: rgb(203, 213, 225);
-  --accent-purple: #573781;
-  --accent-purple-border: #3A245650;
-}
-
 .page-bg {
   background: var(--app-bg);
   min-height: 100vh;
@@ -823,10 +811,6 @@ body.dark,
   height: 100%;
 }
 
-.min-h-\[200px\] {
-  min-height: 200px;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -869,10 +853,6 @@ body.dark,
 
 .flex-\[1_1_auto\] {
   flex: 1 1 auto;
-}
-
-.flex-shrink-0 {
-  flex-shrink: 0;
 }
 
 .shrink-0 {
@@ -944,8 +924,12 @@ body.dark,
   gap: 1rem;
 }
 
-.gap-6 {
-  gap: 1.5rem;
+.gap-x-3 {
+  column-gap: 0.75rem;
+}
+
+.gap-y-1 {
+  row-gap: 0.25rem;
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -962,18 +946,6 @@ body.dark,
 
 .overflow-hidden {
   overflow: hidden;
-}
-
-.overflow-visible {
-  overflow: visible;
-}
-
-.whitespace-nowrap {
-  white-space: nowrap;
-}
-
-.whitespace-pre-wrap {
-  white-space: pre-wrap;
 }
 
 .rounded {
@@ -1016,12 +988,12 @@ body.dark,
   padding: 1rem;
 }
 
-.p-7 {
-  padding: 1.75rem;
+.p-6 {
+  padding: 1.5rem;
 }
 
-.p-8 {
-  padding: 2rem;
+.p-7 {
+  padding: 1.75rem;
 }
 
 .px-2 {
@@ -1155,11 +1127,6 @@ body.dark,
   line-height: 20px;
 }
 
-.text-ui-17 {
-  font-size: 17px;
-  line-height: 24px;
-}
-
 .text-ui-18 {
   font-size: 18px;
   line-height: 28px;
@@ -1209,10 +1176,6 @@ body.dark,
 
 .tracking-tight-px {
   letter-spacing: -1px;
-}
-
-.text-\[var\(--text-muted\)\] {
-  color: var(--text-muted);
 }
 
 .text-slate-700 {
@@ -1290,10 +1253,6 @@ body.dark,
   transition-duration: 300ms;
 }
 
-.ease-\[cubic-bezier\(0\.22\2c 1\2c 0\.36\2c 1\)\] {
-  transition-timing-function: cubic-bezier(0.22,1,0.36,1);
-}
-
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
@@ -1309,6 +1268,10 @@ body.dark,
 
 .hover\:bg-slate-900\/70:hover {
   background-color: rgb(15 23 42 / 0.7);
+}
+
+.hover\:opacity-60:hover {
+  opacity: 0.6;
 }
 
 .hover\:opacity-70:hover {
@@ -1367,24 +1330,6 @@ body.dark,
 .active\:brightness-\[1\.4\]:active {
   --tw-brightness: brightness(1.4);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.group:hover .group-hover\:-translate-y-2 {
-  --tw-translate-y: -0.5rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:translate-x-2 {
-  --tw-translate-x: 0.5rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:\!text-\[var\(--text-purple\)\] {
-  color: var(--text-purple) !important;
-}
-
-.group:hover .group-hover\:text-\[var\(--text-strong\)\] {
-  color: var(--text-strong);
 }
 
 .group:hover .group-hover\:opacity-100 {

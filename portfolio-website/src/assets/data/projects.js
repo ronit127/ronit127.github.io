@@ -22,7 +22,7 @@ const projects = [
         title: "Formal Regular Expression Parser",
         description: "Formal regex analysis tool that constructs and simulates finite automata.",
         liveLink: "https://ronit127.github.io/formal-regular-expressions/",
-        repoLink: "https://ronit127.github.io/formal-regular-expressions/",
+        repoLink: "",
         image: regexImg,
         technologies: ["Python", "PyScript", "NetworkX", "HTML", "CSS"],
         badges: ["Featured by Algo Prof", "Used by 50+ Students"],

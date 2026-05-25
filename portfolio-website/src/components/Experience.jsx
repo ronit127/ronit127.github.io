@@ -1,42 +1,42 @@
-import { renderTextWithTechChips } from '../lib/renderTextWithTechChips';
+import { renderTextWithTechChips } from "../lib/renderTextWithTechChips";
 
 const experiences = [
   {
-    title: 'Software Engineer Intern',
-    company: 'Rivian',
-    period: 'May 2026 - Aug 2026',
+    title: "Software Engineer Intern",
+    company: "Rivian",
+    period: "May 2026 - Aug 2026",
     highlights: [
-      'Incoming Summer 2026. Will be building, testing, and deploying AI applications',
-    ]
+      "Incoming Summer 2026. Will be building, testing, and deploying AI applications",
+    ],
   },
   {
-    title: 'Software Engineer Intern',
-    company: 'Butterflo',
-    period: 'Aug 2025 - Present',
+    title: "Software Engineer Intern",
+    company: "Butterflo",
+    period: "Aug 2025 - May 2026",
     highlights: [
-      'Built accessible, responsive React components using TypeScript and Tailwind CSS for a map-based property discovery platform',
-      'Developed a filtering UI with geographic diversity logic for better user exploration across property datasets, supported by Cosmos DB spatial queries',
-    ]
+      "Built accessible, responsive React components using TypeScript and Tailwind CSS for a map-based property discovery platform",
+      "Developed a filtering UI with geographic diversity logic for better user exploration across property datasets, supported by Cosmos DB spatial queries",
+    ],
   },
   {
-    title: 'Software Project Lead',
-    company: 'Project: Code @ UIUC',
-    period: 'Jan 2025 – Present',
+    title: "Software Project Lead",
+    company: "Project: Code @ UIUC",
+    period: "Jan 2025 – May 2026",
     highlights: [
-      'Led student developer team to build a web-based Python editor with real-time visualizations of lists, stacks, queues, heaps, dictionaries and graphs',
-      'Built a Flask REST API with a JavaScript and D3.js frontend for data structure visualizations',
-      'Facilitated weekly code reviews and delivered live demo presentations at project showcase with 100+ attendees',
-    ]
+      "Led student developer team to build a web-based Python editor with real-time visualizations of lists, stacks, queues, heaps, dictionaries and graphs",
+      "Built a Flask REST API with a JavaScript and D3.js frontend for data structure visualizations",
+      "Facilitated weekly code reviews and delivered live demo presentations at project showcase with 100+ attendees",
+    ],
   },
   {
-    title: 'Research Software Engineer Intern',
-    company: 'Portland State University, Teuscher Lab',
-    period: 'May 2024 - Aug 2024',
+    title: "Research Software Engineer Intern",
+    company: "Portland State University, Teuscher Lab",
+    period: "May 2024 - Aug 2024",
     highlights: [
-      'Created a Python personalized math learning tool with 1K+ question network graph',
-      'Developed A* pathfinding algorithms improving performance by 18%',
-    ]
-  }
+      "Created a Python personalized math learning tool with 1K+ question network graph",
+      "Developed A* pathfinding algorithms improving performance by 18%",
+    ],
+  },
 ];
 
 function Experience() {
@@ -46,27 +46,40 @@ function Experience() {
         <h2 className="section-title">Experience</h2>
         <div className="mt-9 px-4 sm:px-5 space-y-8">
           {experiences.map((exp, index) => (
-           <div>
+            <div key={index}>
               <div className="flex items-start justify-between gap-4 mb-[2px]">
-                <h3 className="font-display font-medium text-2xl tracking-tight" style={{ color: 'var(--text)' }}>
+                <h3
+                  className="font-display font-medium text-2xl tracking-tight"
+                  style={{ color: "var(--text)" }}
+                >
                   {exp.company}
                 </h3>
                 <span
                   className="font-sans text-base shrink-0 rounded-md px-2 py-[3px] border"
-                  style={{ color: 'var(--text-muted)', borderColor: 'rgba(150,150,150,0.3)' }}
+                  style={{
+                    color: "var(--text-muted)",
+                    borderColor: "rgba(150,150,150,0.3)",
+                  }}
                 >
                   {exp.period}
                 </span>
               </div>
 
-              <p className="font-sans text-lg mb-4" style={{ color: 'var(--text-muted)' }}>
+              <p
+                className="font-sans text-lg mb-4"
+                style={{ color: "var(--text-muted)" }}
+              >
                 {exp.title}
               </p>
 
               <div className="space-y-2">
                 {exp.highlights.map((highlight, idx) => (
-                  <p key={idx} className="font-sans text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                    {renderTextWithTechChips(highlight, false, 'text-sm')}
+                  <p
+                    key={idx}
+                    className="font-sans text-lg leading-relaxed"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {renderTextWithTechChips(highlight, false, "text-sm")}
                   </p>
                 ))}
               </div>

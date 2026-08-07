@@ -4,9 +4,11 @@ const experiences = [
   {
     title: "Software Engineer Intern",
     company: "Rivian",
-    period: "May 2026 - Aug 2026",
+    period: "May 2026 - Present",
     highlights: [
-      "Incoming Summer 2026. Will be building, testing, and deploying AI applications",
+      "Built an observability platform for 42 Bedrock agents across 145K+ weekly sessions using Python, React, and AWS",
+      "Developed a diagnostic chat agent for on-call incidents used by 10 engineers, pulling together logs, MCP, and the knowledge base into grounded answers",
+      "Built an agentic pipeline with Lambda, Step Functions, DynamoDB, and Bedrock to review supplier risk for 700+ suppliers, saving 30 analyst-hours/week",
     ],
   },
   {

@@ -3,7 +3,7 @@ import regexImg from './images/regexprojectimage.PNG';
 const projects = [
     {
         title: "Visual Debugger",
-        description: "Web-based Python debugger that steps execution and visualizes evolving data structures.",
+        description: "Web-based Python debugger that steps execution, visualizes evolving data structures, and uses an AI agent for sourced explanations.",
         liveLink: "",
         repoLink: "https://github.com/ronit127/visual-debugger",
         image: regexImg,

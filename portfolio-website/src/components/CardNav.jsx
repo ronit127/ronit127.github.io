@@ -139,14 +139,18 @@ const CardNav = ({ items, ease = "power3.out", hoverLabel = null }) => {
           tools that make learning coding or math skills easier.
           <br />
           <br />
-          I&apos;ll be interning at <L href="https://www.rivian.com/">
+          I am interning at <L href="https://www.rivian.com/">
             Rivian
           </L>{" "}
-          this summer working as an AI software engineer. This spring, I helped
+          this summer working as a software engineer on AI observability and agentic pipelines. This spring, I helped
           build the beta of <L href="https://butterflo.com/">Butterflo</L>
-          &apos;s real estate platform and led a dev team at <L href="https://projectcodeuiuc.org/projects/visual-debugger">Project:Code</L>. Reach
-          out!{" — "}
-          <L href="mailto:ronitr.dev@gmail.com">email</L>,{" "}
+          &apos;s real estate platform and led a dev team at <L href="https://projectcodeuiuc.org/projects/visual-debugger">Project:Code</L>. 
+          
+          <br />
+          <br />
+          Reach
+          out! {" "}
+          <L href="mailto:ronitr.dev@gmail.com">Email</L>,{" "}
           <L href="https://www.linkedin.com/in/ronit-rout/">LinkedIn</L>,{" "}
           <L href="https://github.com/ronit127">GitHub</L>.
         </p>

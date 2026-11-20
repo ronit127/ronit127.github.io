@@ -133,23 +133,21 @@ const CardNav = ({ items, ease = "power3.out", hoverLabel = null }) => {
           className="text-ui-18 sm:text-ui-20 md:text-ui-24 leading-[34px] sm:leading-[38px] md:leading-[42px]"
           style={{ color: "var(--text-muted)" }}
         >
-          I&apos;m a third-year studying CS and education at{" "}
-          <L href="https://siebelschool.illinois.edu/">UIUC</L>. I build web
+          I&apos;m a fourth-year undergrad studying CS + education at{" "}
+          <L href="https://siebelschool.illinois.edu/">UIUC</L>. I build AI agents and web
           apps with TypeScript, React, Python and AWS integrations, usually
           tools that make learning coding or math skills easier.
           <br />
           <br />
-          I am interning at <L href="https://www.rivian.com/">
+          This summer, I interned at <L href="https://www.rivian.com/">
             Rivian
           </L>{" "}
-          this summer working as a software engineer on AI observability and agentic pipelines. This spring, I helped
-          build the beta of <L href="https://butterflo.com/">Butterflo</L>
+          working as a software engineer on AI observability and agentic pipelines. This spring, I was helping          build the beta of <L href="https://butterflo.com/">Butterflo</L>
           &apos;s real estate platform and led a dev team at <L href="https://projectcodeuiuc.org/projects/visual-debugger">Project:Code</L>. 
           
           <br />
           <br />
-          Reach
-          out! {" "}
+          Feel free to reach out! {" "}
           <L href="mailto:ronitr.dev@gmail.com">Email</L>,{" "}
           <L href="https://www.linkedin.com/in/ronit-rout/">LinkedIn</L>,{" "}
           <L href="https://github.com/ronit127">GitHub</L>.
